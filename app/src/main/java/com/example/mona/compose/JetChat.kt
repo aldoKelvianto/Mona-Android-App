@@ -5,7 +5,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.mona.R
@@ -35,13 +34,28 @@ fun JetChat2() {
 @Composable
 fun JetChat3() {
     Row {
-        Image(painter = painterResource(id = R.drawable.ic_launcher_background), contentDescription = "User photo")
+        Image(painter = painterResource(id = R.drawable.mona), contentDescription = "User photo")
         Column {
             Row {
-                Text("Aldo Kelvianto")
+                Text("Mona")
                 Text("14:00")
             }
-            Text("Let\'s go to Aeon mall!")
+            Text("Let\'s get some Mora!")
+        }
+    }
+}
+
+@Preview
+@Composable
+fun JetChat4() {
+    Row {
+        UserPhoto(drawableId = R.drawable.mona)
+        Column {
+            Row {
+                Text("Mona")
+                Text("14:00")
+            }
+            Text("Let\'s get some Mora!")
         }
     }
 }

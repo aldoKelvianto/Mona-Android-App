@@ -22,16 +22,35 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    buildFeatures {
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion "1.1.1"
+    }
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
+    }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
     }
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = '11'
     }
 }
 
 dependencies {
+    // Integration with activities
+    implementation "androidx.activity:activity-compose:1.4.0"
+    // Compose Material Design
+    implementation "androidx.compose.material:material:1.1.1"
+    // Tooling support (Previews, etc.)
+    implementation "androidx.compose.ui:ui-tooling:1.1.1"
+    // UI Tests
+    androidTestImplementation "androidx.compose.ui:ui-test-junit4:1.1.1"
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.4.2'

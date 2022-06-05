@@ -30,6 +30,38 @@ fun Modifier.gradientBackground(
 
 @Preview
 @Composable
+fun OneImage() {
+    Image(
+        painter = painterResource(id = R.drawable.ic_g10_crystal_a),
+        contentDescription = "One image"
+    )
+}
+
+@Preview
+@Composable
+fun TwoImages() {
+    Box(
+        contentAlignment = Alignment.Center
+    ) {
+        Image(
+            painter = painterResource(id = R.drawable.ic_g1_vegs_a),
+            modifier = Modifier
+                .offset(x = (-10).dp)
+                .size(60.dp),
+            contentDescription = "desc"
+        )
+        Image(
+            painter = painterResource(id = R.drawable.ic_g1_vegs_b),
+            modifier = Modifier
+                .offset(x = 10.dp)
+                .size(40.dp),
+            contentDescription = "desc"
+        )
+    }
+}
+
+@Preview
+@Composable
 fun ItemCategory() {
     Card(
         elevation = 10.dp,
@@ -38,30 +70,28 @@ fun ItemCategory() {
         Column(
             modifier = Modifier
                 .gradientBackground(ItemCategoryGradient)
+                .padding(8.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
                 text = "Sayur dan buah",
-                modifier = Modifier.padding(12.dp),
+                modifier = Modifier.width(70.dp),
                 color = Blue700,
                 textAlign = TextAlign.Center
             )
-            Box(modifier = Modifier.width(100.dp).padding(8.dp), contentAlignment = Alignment.Center) {
+            Row(
+            ) {
                 Image(
                     painter = painterResource(id = R.drawable.ic_g1_vegs_a),
-                    modifier = Modifier
-                        .offset(x = (-10).dp)
-                        .size(60.dp),
+                    modifier = Modifier.size(30.dp),
                     contentDescription = "desc"
                 )
                 Image(
                     painter = painterResource(id = R.drawable.ic_g1_vegs_b),
-                    modifier = Modifier
-                        .offset(x = 10.dp)
-                        .size(40.dp),
+                    modifier = Modifier.size(30.dp),
                     contentDescription = "desc"
                 )
             }
-
         }
     }
 }

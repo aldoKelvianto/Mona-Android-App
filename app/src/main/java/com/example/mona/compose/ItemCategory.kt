@@ -16,6 +16,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.mona.R
+import com.example.mona.data.Category
+import com.example.mona.data.Category1
 
 @Preview
 @Composable
@@ -51,7 +53,12 @@ fun TwoImages() {
 
 @Preview
 @Composable
-fun ItemCategory() {
+fun PreviewItemCategory() {
+    ItemCategory(Category1)
+}
+
+@Composable
+fun ItemCategory(category: Category) {
     Card(
         elevation = 10.dp,
         shape = RoundedCornerShape(8.dp)
@@ -69,7 +76,7 @@ fun ItemCategory() {
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
-                text = "Sayur dan buah",
+                text = category.name,
                 modifier = Modifier.width(70.dp),
                 color = Blue700,
                 textAlign = TextAlign.Center
@@ -77,14 +84,14 @@ fun ItemCategory() {
             Row(
             ) {
                 Image(
-                    painter = painterResource(id = R.drawable.ic_g1_vegs_a),
+                    painter = painterResource(id = category.icon1),
                     modifier = Modifier
                         .size(40.dp)
                         .offset(x = 10.dp),
                     contentDescription = "desc"
                 )
                 Image(
-                    painter = painterResource(id = R.drawable.ic_g1_vegs_b),
+                    painter = painterResource(id = category.icon2),
                     modifier = Modifier
                         .size(40.dp)
                         .offset(x = (-10).dp),

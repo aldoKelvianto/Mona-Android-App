@@ -34,6 +34,7 @@ fun Home() {
         content = {
             Header()
             HelloWorld()
+            ItemCategorySection()
         },
         bottomBar = { MonaBottomBar() }
     )

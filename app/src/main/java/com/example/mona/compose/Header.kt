@@ -23,8 +23,8 @@ fun Header() {
                     center = Offset(240f, 10f)
                 )
             )
-
     ) {
+        Greet()
         Spacer(modifier = Modifier.size(100.dp))
     }
 }

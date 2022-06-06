@@ -15,7 +15,7 @@ import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 @Composable
 fun MonaTheme(
-    content: @Composable () -> Unit
+    Content: @Composable () -> Unit
 ) {
     val sysUiController = rememberSystemUiController()
     SideEffect {
@@ -23,19 +23,21 @@ fun MonaTheme(
             color = Color.Transparent
         )
     }
-    content()
+    Content()
 }
 
 @Preview
 @Composable
 fun Home() {
-    MonaTheme {
-        Scaffold(
-            topBar = {},
-            content = { Greet() },
-            bottomBar = { MonaBottomBar() }
-        )
-    }
+//    MonaTheme {
+    Scaffold(
+        content = {
+            Header()
+            HelloWorld()
+        },
+        bottomBar = { MonaBottomBar() }
+    )
+//    }
 }
 
 @Preview

@@ -1,41 +1,55 @@
 package com.example.mona.compose
 
 import android.util.Log
-import androidx.compose.material.*
+import androidx.compose.material.BottomNavigation
+import androidx.compose.material.BottomNavigationItem
+import androidx.compose.material.Icon
+import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.mona.state.NavigationItem
+import com.example.mona.state.BottomBarItem
+import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 @Composable
+fun MonaTheme(
+    content: @Composable () -> Unit
+) {
+    val sysUiController = rememberSystemUiController()
+    SideEffect {
+        sysUiController.setSystemBarsColor(
+            color = Color.Transparent
+        )
+    }
+    content()
+}
+
+@Preview
+@Composable
 fun Home() {
-    Scaffold(
-        bottomBar = { BottomMenu() }
-    ) {
+    MonaTheme {
+        Scaffold(
+            topBar = {},
+            content = { Greet() },
+            bottomBar = { MonaBottomBar() }
+        )
     }
 }
 
 @Preview
 @Composable
-fun BottomMenu() {
-    val list = listOf(
-        NavigationItem.Home,
-        NavigationItem.Cart,
-        NavigationItem.History,
-        NavigationItem.Profile,
-    )
+fun MonaBottomBar() {
     BottomNavigation(
         backgroundColor = Color.White,
         contentColor = Color.Green
     ) {
-        list.forEach {
+        BottomBarItem.values().forEach {
             BottomNavigationItem(
                 icon = { Icon(painterResource(id = it.icon), contentDescription = "Desc") },
-                label = { Text(text = it.name) },
                 selectedContentColor = Blue700,
-                unselectedContentColor = Color.Black,
-                alwaysShowLabel = true,
+                unselectedContentColor = Grey900,
                 selected = it.name == "Home",
                 onClick = {
                     Log.d("asdf", "clicked!")

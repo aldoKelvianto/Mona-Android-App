@@ -10,7 +10,7 @@ import androidx.compose.ui.unit.dp
 
 @Preview
 @Composable
-fun Greet(name: String = "Elvan") {
+fun Greet(name: String = "World") {
     Text("Hello, $name")
 }
 

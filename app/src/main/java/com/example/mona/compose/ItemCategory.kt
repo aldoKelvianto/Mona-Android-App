@@ -11,22 +11,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.mona.R
-
-fun Modifier.gradientBackground(
-    colors: List<Color>
-) = background(
-    Brush.radialGradient(
-        colors = colors,
-        radius = 250f,
-        center = Offset(120f, 50f)
-    )
-)
 
 @Preview
 @Composable
@@ -69,7 +58,13 @@ fun ItemCategory() {
     ) {
         Column(
             modifier = Modifier
-                .gradientBackground(ItemCategoryGradient)
+                .background(
+                    Brush.radialGradient(
+                        colors = ItemCategoryColors,
+                        radius = 250f,
+                        center = Offset(120f, 50f)
+                    )
+                )
                 .padding(8.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {

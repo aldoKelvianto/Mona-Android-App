@@ -83,12 +83,16 @@ fun ItemCategory() {
             ) {
                 Image(
                     painter = painterResource(id = R.drawable.ic_g1_vegs_a),
-                    modifier = Modifier.size(30.dp),
+                    modifier = Modifier
+                        .size(40.dp)
+                        .offset(x = 10.dp),
                     contentDescription = "desc"
                 )
                 Image(
                     painter = painterResource(id = R.drawable.ic_g1_vegs_b),
-                    modifier = Modifier.size(30.dp),
+                    modifier = Modifier
+                        .size(40.dp)
+                        .offset(x = (-10).dp),
                     contentDescription = "desc"
                 )
             }

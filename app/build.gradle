@@ -26,7 +26,7 @@ android {
         compose true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion "1.1.1"
+        kotlinCompilerExtensionVersion "1.2.0-beta03"
     }
     packagingOptions {
         resources {
@@ -44,13 +44,16 @@ android {
 
 dependencies {
     // Integration with activities
+    implementation 'androidx.compose.ui:ui:1.2.0-beta03'
+    implementation 'androidx.compose.foundation:foundation:1.2.0-beta03'
     implementation "androidx.activity:activity-compose:1.4.0"
     // Compose Material Design
-    implementation "androidx.compose.material:material:1.1.1"
+    implementation "androidx.compose.material:material:1.2.0-beta03"
     // Tooling support (Previews, etc.)
-    implementation "androidx.compose.ui:ui-tooling:1.1.1"
+    implementation "androidx.compose.ui:ui-tooling:1.2.0-beta03"
+
     // UI Tests
-    androidTestImplementation "androidx.compose.ui:ui-test-junit4:1.1.1"
+    androidTestImplementation "androidx.compose.ui:ui-test-junit4:1.2.0-beta03"
     implementation "com.google.accompanist:accompanist-systemuicontroller:0.23.1"
 
     implementation 'androidx.core:core-ktx:1.7.0'

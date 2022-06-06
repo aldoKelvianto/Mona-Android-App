@@ -8,7 +8,6 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.mona.state.NavigationItem
 
-@Preview
 @Composable
 fun Home() {
     Scaffold(
@@ -27,21 +26,20 @@ fun BottomMenu() {
         NavigationItem.Profile,
     )
     BottomNavigation(
-        backgroundColor = Color.Gray,
-        contentColor = Color.Black
+        backgroundColor = Color.White,
+        contentColor = Color.Green
     ) {
         list.forEach {
             BottomNavigationItem(
                 icon = { Icon(painterResource(id = it.icon), contentDescription = "Desc") },
                 label = { Text(text = it.name) },
-                selectedContentColor = Color.Black,
-                unselectedContentColor = Color.White.copy(0.4f),
+                selectedContentColor = Blue700,
+                unselectedContentColor = Color.Black,
                 alwaysShowLabel = true,
-                selected = false,
+                selected = it.name == "Home",
                 onClick = {
                     Log.d("asdf", "clicked!")
                 })
         }
-
     }
 }

@@ -12,10 +12,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.mona.R
+import androidx.compose.ui.unit.sp
 import com.example.mona.data.Category
 import com.example.mona.data.Category1
 
@@ -41,7 +43,7 @@ fun TwoImages(imageRes1: Int, imageRes2: Int) {
             painter = painterResource(id = imageRes2),
             modifier = Modifier
                 .offset(x = 10.dp)
-                .size(40.dp),
+                .size(50.dp),
             contentDescription = "desc"
         )
     }
@@ -68,32 +70,20 @@ fun ItemCategory(category: Category) {
                         center = Offset(120f, 50f)
                     )
                 )
-                .size(100.dp)
-                .padding(8.dp),
+                .size(100.dp),
+            verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
                 text = category.name,
-                modifier = Modifier.width(70.dp),
+                modifier = Modifier.width(82.dp),
+                fontSize = 12.sp,
+                fontWeight = FontWeight.Bold,
                 color = Blue700,
                 textAlign = TextAlign.Center
             )
-            Row(
-            ) {
-                Image(
-                    painter = painterResource(id = category.icon1),
-                    modifier = Modifier
-                        .size(40.dp)
-                        .offset(x = 10.dp),
-                    contentDescription = "desc"
-                )
-                Image(
-                    painter = painterResource(id = category.icon2),
-                    modifier = Modifier
-                        .size(40.dp)
-                        .offset(x = (-10).dp),
-                    contentDescription = "desc"
-                )
+            Row {
+                TwoImages(imageRes1 = category.icon1, imageRes2 = category.icon2)
             }
         }
     }

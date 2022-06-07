@@ -21,28 +21,24 @@ import com.example.mona.data.Category1
 
 @Preview
 @Composable
-fun OneImage() {
-    Image(
-        painter = painterResource(id = R.drawable.ic_g10_crystal_a),
-        contentDescription = "One image"
-    )
+fun PreviewTwoImages() {
+    TwoImages(imageRes1 = Category1.icon1, imageRes2 = Category1.icon2)
 }
 
-@Preview
 @Composable
-fun TwoImages() {
+fun TwoImages(imageRes1: Int, imageRes2: Int) {
     Box(
         contentAlignment = Alignment.Center
     ) {
         Image(
-            painter = painterResource(id = R.drawable.ic_g1_vegs_a),
+            painter = painterResource(id = imageRes1),
             modifier = Modifier
                 .offset(x = (-10).dp)
                 .size(60.dp),
             contentDescription = "desc"
         )
         Image(
-            painter = painterResource(id = R.drawable.ic_g1_vegs_b),
+            painter = painterResource(id = imageRes2),
             modifier = Modifier
                 .offset(x = 10.dp)
                 .size(40.dp),
@@ -72,6 +68,7 @@ fun ItemCategory(category: Category) {
                         center = Offset(120f, 50f)
                     )
                 )
+                .size(100.dp)
                 .padding(8.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {

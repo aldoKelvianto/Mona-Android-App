@@ -12,7 +12,7 @@ import com.example.mona.data.ItemCategoryData
 
 @Preview
 @Composable
-fun OldItemCategorySection() {
+fun PreviewLazySectionCategory() {
     val list = ItemCategoryData.itemList
     LazyVerticalGrid(
         userScrollEnabled = false,
@@ -22,13 +22,19 @@ fun OldItemCategorySection() {
         horizontalArrangement = Arrangement.spacedBy(8.dp)
     ) {
         this.items(list) { item ->
-            ItemCategory(item)
+            CategoryItem(item)
         }
     }
 }
 
+@Preview
 @Composable
-fun ItemCategorySection() {
+fun PreviewSectionCategory() {
+    SectionCategory()
+}
+
+@Composable
+fun SectionCategory() {
     val columnCount = 3
     val list = ItemCategoryData.itemList.chunked(columnCount)
     Column(
@@ -42,15 +48,9 @@ fun ItemCategorySection() {
                 horizontalArrangement = Arrangement.spacedBy(8.dp)
             ) {
                 rowList.forEach { rowItem ->
-                    ItemCategory(category = rowItem)
+                    CategoryItem(category = rowItem)
                 }
             }
         }
     }
-}
-
-@Preview
-@Composable
-fun PreviewItemCategorySection() {
-    ItemCategorySection()
 }

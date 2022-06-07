@@ -18,6 +18,11 @@ import com.example.mona.R
 
 @Preview
 @Composable
+fun PreviewFavorite() {
+    Favorite()
+}
+
+@Composable
 fun Favorite() {
     Box(
         contentAlignment = Alignment.Center

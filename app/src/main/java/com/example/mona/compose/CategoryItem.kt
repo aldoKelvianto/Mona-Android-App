@@ -12,7 +12,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -51,12 +50,12 @@ fun TwoImages(imageRes1: Int, imageRes2: Int) {
 
 @Preview
 @Composable
-fun PreviewItemCategory() {
-    ItemCategory(Category1)
+fun PreviewCategoryItem() {
+    CategoryItem(Category1)
 }
 
 @Composable
-fun ItemCategory(category: Category) {
+fun CategoryItem(category: Category) {
     Card(
         elevation = 10.dp,
         shape = RoundedCornerShape(8.dp)

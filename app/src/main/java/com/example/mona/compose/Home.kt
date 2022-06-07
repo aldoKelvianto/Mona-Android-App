@@ -1,6 +1,7 @@
 package com.example.mona.compose
 
 import android.util.Log
+import androidx.compose.foundation.layout.Column
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
 import androidx.compose.material.Icon
@@ -32,9 +33,13 @@ fun Home() {
 //    MonaTheme {
     Scaffold(
         content = {
-            Header()
-            HelloWorld()
-            ItemCategorySection()
+            it
+            Column {
+                Header()
+                HelloWorld()
+                BannerSection()
+                ItemCategorySection()
+            }
         },
         bottomBar = { MonaBottomBar() }
     )

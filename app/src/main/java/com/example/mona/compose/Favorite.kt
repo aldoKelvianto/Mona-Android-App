@@ -25,14 +25,12 @@ fun PreviewFavorite() {
 @Composable
 fun Favorite() {
     Box(
-        contentAlignment = Alignment.Center
+        contentAlignment = Alignment.Center,
+        modifier = Modifier
+            .size(42.dp)
+            .clip(CircleShape)
+            .background(Color.White)
     ) {
-        Spacer(
-            modifier = Modifier
-                .size(100.dp)
-                .clip(CircleShape)
-                .background(Color.White),
-        )
         Image(
             painter = painterResource(id = R.drawable.ic_favorite_order_24),
             contentDescription = "Description",

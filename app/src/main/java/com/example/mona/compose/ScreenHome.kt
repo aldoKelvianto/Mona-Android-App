@@ -1,5 +1,6 @@
 package com.example.mona.compose
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
@@ -7,6 +8,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 
 @Preview
@@ -17,25 +19,22 @@ fun PreviewScreenHome() {
 
 @Composable
 fun ScreenHome() {
-    ThemeMona {
-        val scrollState = rememberScrollState()
-        Scaffold(
-            content = { paddingValues ->
-                Column(
-                    modifier = Modifier
-                        .verticalScroll(
-                            state = scrollState,
-                            enabled = true
-                        )
-                        .padding(bottom = paddingValues.calculateBottomPadding())
-                ) {
-                    PreviewSectionGreeting()
-                    PreviewDeviceInfo()
-                    SectionBanner()
-                    SectionCategory()
-                }
-            },
-            bottomBar = { SectionBottomBar() }
-        )
-    }
+    val scrollState = rememberScrollState()
+    Scaffold(
+        content = { paddingValues ->
+            Column(
+                modifier = Modifier
+                    .verticalScroll(
+                        state = scrollState,
+                        enabled = true
+                    )
+                    .padding(bottom = paddingValues.calculateBottomPadding())
+            ) {
+                SectionTop()
+                SectionBanner()
+                SectionCategory()
+            }
+        },
+        bottomBar = { SectionBottomBar() }
+    )
 }

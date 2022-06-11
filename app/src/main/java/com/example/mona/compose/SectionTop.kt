@@ -44,11 +44,16 @@ fun SectionTop() {
         val heightInDp = with(LocalDensity.current) {
             height.value.toDp()
         }
+        // 70 is the banner height (140) divided by two.
+        val backgroundHeight = heightInDp - 70.dp
+        // We can't see the background in preview
+        // Because the height is calculated at runtime
+        // We must to test it on emulator/device.
         Box(
             modifier = Modifier
                 .background(brush)
                 .fillMaxWidth()
-                .height(heightInDp - 70.dp)
+                .height(backgroundHeight)
                 .zIndex(0f)
         )
     }

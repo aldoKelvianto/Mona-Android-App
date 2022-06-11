@@ -39,7 +39,7 @@ fun SectionTop() {
         val brush = Brush.radialGradient(
             colors = HeaderColors,
             radius = 550f,
-            center = Offset(766f, 10f)
+            center = Offset(606f, 10f)
         )
         val heightInDp = with(LocalDensity.current) {
             height.value.toDp()

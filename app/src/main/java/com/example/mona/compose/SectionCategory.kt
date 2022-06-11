@@ -38,9 +38,8 @@ fun SectionCategory() {
     val columnCount = 3
     val list = ItemCategoryData.itemList.chunked(columnCount)
     Column(
-        modifier = Modifier
-            .fillMaxWidth(),
-        verticalArrangement = Arrangement.spacedBy(8.dp)
+        modifier = Modifier.fillMaxWidth(),
+        verticalArrangement = Arrangement.spacedBy(12.dp)
     ) {
         list.forEach { rowList ->
             Row(

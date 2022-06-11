@@ -21,9 +21,8 @@ fun RowScope.Search(hint: String) {
         modifier = Modifier
             .background(
                 color = Color.White,
-                shape = RoundedCornerShape(4.dp),
+                shape = RoundedCornerShape(8.dp),
             )
-            .clip(RoundedCornerShape(8.dp))
             .weight(1f)
             .padding(8.dp),
         verticalAlignment = Alignment.CenterVertically
@@ -33,7 +32,7 @@ fun RowScope.Search(hint: String) {
             contentDescription = "Search icon"
         )
         Spacer(modifier = Modifier.size(4.dp))
-        Text(text = hint, color = Color.Blue)
+        Text(text = hint, color = Color.Gray)
     }
 }
 

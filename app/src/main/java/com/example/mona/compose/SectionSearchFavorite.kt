@@ -18,7 +18,7 @@ fun SectionSearchFavorite() {
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(8.dp),
+            .padding(vertical = 8.dp, horizontal = 12.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Search(hint = "Cari produk disini")

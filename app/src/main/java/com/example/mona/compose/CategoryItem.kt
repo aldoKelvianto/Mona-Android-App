@@ -69,7 +69,7 @@ fun CategoryItem(category: Category) {
                         center = Offset(120f, 50f)
                     )
                 )
-                .size(110.dp),
+                .size(100.dp),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {

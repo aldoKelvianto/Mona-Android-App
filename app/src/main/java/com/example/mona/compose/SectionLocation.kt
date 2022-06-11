@@ -11,14 +11,20 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.mona.R
 
 @Composable
 fun SectionLocation() {
-    Row(modifier = Modifier.fillMaxWidth().padding(8.dp), verticalAlignment = Alignment.CenterVertically) {
-        Text(text = "Mondstadt", color = Color.White)
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(vertical = 8.dp, horizontal = 12.dp),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Text(text = "Mondstadt", color = Color.White, fontWeight = FontWeight.Bold)
         Icon(
             painter = painterResource(id = R.drawable.ic_chevron_outline_24),
             contentDescription = "Location icon",

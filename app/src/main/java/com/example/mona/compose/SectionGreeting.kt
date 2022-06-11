@@ -19,9 +19,9 @@ fun PreviewSectionGreeting() {
 
 @Composable
 fun SectionGreeting() {
-    Column(Modifier.padding(8.dp)) {
+    Column(Modifier.padding(vertical = 8.dp, horizontal = 12.dp)) {
         Text(
-            text = "Hey, Traveller",
+            text = "Hey Traveller",
             fontWeight = FontWeight.Bold,
             color = Color.White,
             fontSize = 24.sp

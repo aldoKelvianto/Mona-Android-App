@@ -34,7 +34,7 @@ fun PreviewSectionBanner() {
 fun SectionBanner() {
     val items = BannerData.items
     val lazyListState = rememberLazyListState()
-    val contentPadding = PaddingValues(8.dp)
+    val contentPadding = PaddingValues(12.dp)
     LazyRow(
         contentPadding = contentPadding,
         flingBehavior = rememberSnapperFlingBehavior(

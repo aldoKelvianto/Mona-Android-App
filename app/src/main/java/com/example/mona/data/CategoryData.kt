@@ -24,6 +24,5 @@ object ItemCategoryData {
         Category1,
         Category("Osmanthus wine", R.drawable.ic_g2_osmanthus_a, R.drawable.ic_g2_osmanthus_b),
         Category("Produk internasional", R.drawable.ic_g3_prod_a, R.drawable.ic_g3_prod_b),
-        Category("Makanan", R.drawable.ic_g4_food_a, R.drawable.ic_g4_food_b),
     )
 }

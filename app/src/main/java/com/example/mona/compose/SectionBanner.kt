@@ -31,7 +31,7 @@ fun PreviewSectionBanner() {
 // Command, option, shift, R
 @OptIn(ExperimentalSnapperApi::class)
 @Composable
-fun SectionBanner() {
+fun SectionBanner(modifier: Modifier = Modifier) {
     val items = BannerData.items
     val lazyListState = rememberLazyListState()
     val contentPadding = PaddingValues(8.dp)
@@ -42,6 +42,7 @@ fun SectionBanner() {
             endContentPadding = contentPadding.calculateEndPadding(LayoutDirection.Ltr),
         ),
         horizontalArrangement = Arrangement.spacedBy(4.dp),
+        modifier = modifier
     ) {
         items(items) { item ->
             Banner(item)

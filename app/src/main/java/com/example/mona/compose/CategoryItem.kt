@@ -11,6 +11,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -54,6 +55,19 @@ fun PreviewCategoryItem() {
     CategoryItem(Category1)
 }
 
+private fun Modifier.categoryBackground(isHighlight: Boolean): Modifier {
+    val gradient = Brush.radialGradient(
+        colors = ItemCategoryColors,
+        radius = 250f,
+        center = Offset(120f, 50f)
+    )
+    return if (isHighlight) {
+        background(gradient)
+    } else {
+        background(Color.White)
+    }
+}
+
 @Composable
 fun CategoryItem(category: Category) {
     Card(
@@ -62,13 +76,7 @@ fun CategoryItem(category: Category) {
     ) {
         Column(
             modifier = Modifier
-                .background(
-                    Brush.radialGradient(
-                        colors = ItemCategoryColors,
-                        radius = 250f,
-                        center = Offset(120f, 50f)
-                    )
-                )
+                .categoryBackground(category.isHighlight)
                 .size(100.dp),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
@@ -78,7 +86,7 @@ fun CategoryItem(category: Category) {
                 modifier = Modifier.width(82.dp),
                 fontSize = 12.sp,
                 fontWeight = FontWeight.Bold,
-                color = Blue700,
+                color = Blue900,
                 textAlign = TextAlign.Center
             )
             Row {

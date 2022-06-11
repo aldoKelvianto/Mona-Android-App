@@ -36,7 +36,7 @@ fun SectionTop() {
             SectionSearchFavorite()
             SectionBanner()
         }
-        val brush = Brush.radialGradient(
+        val radialGradient = Brush.radialGradient(
             colors = HeaderColors,
             radius = 550f,
             center = Offset(606f, 10f)
@@ -51,7 +51,7 @@ fun SectionTop() {
         // We must to test it on emulator/device.
         Box(
             modifier = Modifier
-                .background(brush)
+                .background(radialGradient)
                 .fillMaxWidth()
                 .height(backgroundHeight)
                 .zIndex(0f)

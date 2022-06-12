@@ -6,6 +6,9 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.toMutableStateList
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -24,9 +27,12 @@ fun PreviewScreenHome() {
 fun ScreenHome() {
     val scrollState = rememberScrollState()
     val navController = rememberNavController()
+    val bottomBarItemList = remember {
+        mutableStateListOf<BottomBarItem>().apply { addAll(BottomBarItem.values()) }
+    }
     Scaffold(
         content = { paddingValues ->
-            NavHost(navController = navController, startDestination = "home") {
+            NavHost(navController = navController, startDestination = BottomBarItem.Home.route) {
                 composable(BottomBarItem.Home.route) {
                     Column(
                         modifier = Modifier
@@ -51,7 +57,18 @@ fun ScreenHome() {
                 }
             }
         },
-        bottomBar = { SectionBottomBar() }
+        bottomBar = {
+            SectionBottomBar(bottomBarItemList) { clickedBottomBarItem ->
+                bottomBarItemList.apply {
+                    clear()
+                    addAll(BottomBarItem.values().toMutableList().map {  item ->
+                        item.isSelected = item.route == clickedBottomBarItem.route
+                        item
+                    })
+                }
+                navController.navigate(clickedBottomBarItem.route)
+            }
+        }
     )
 }
 

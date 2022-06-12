@@ -16,17 +16,20 @@ fun PreviewMonaBottomBar() {
 }
 
 @Composable
-fun SectionBottomBar(onNavigationItemClick: (bottomBarItem: BottomBarItem) -> Unit = {}) {
+fun SectionBottomBar(
+    bottomBarItemList: List<BottomBarItem> = BottomBarItem.values().asList(),
+    onNavigationItemClick: (bottomBarItem: BottomBarItem) -> Unit = {}
+) {
     BottomNavigation(
         backgroundColor = Color.White,
         contentColor = Color.Green
     ) {
-        BottomBarItem.values().forEach {
+        bottomBarItemList.forEach {
             BottomNavigationItem(
                 icon = { Icon(painterResource(id = it.icon), contentDescription = "Desc") },
                 selectedContentColor = Blue700,
                 unselectedContentColor = Grey900,
-                selected = it.name == "Home",
+                selected = it.isSelected,
                 onClick = {
                     onNavigationItemClick(it)
                 })

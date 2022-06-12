@@ -8,6 +8,7 @@ import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 
 @Preview
 @Composable
@@ -26,7 +27,7 @@ fun ScreenHome() {
                         state = scrollState,
                         enabled = true
                     )
-                    .padding(bottom = paddingValues.calculateBottomPadding())
+                    .padding(bottom = paddingValues.calculateBottomPadding() + 12.dp)
             ) {
                 SectionTop()
                 SectionCategory()

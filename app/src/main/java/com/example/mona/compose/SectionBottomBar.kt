@@ -1,6 +1,5 @@
 package com.example.mona.compose
 
-import android.util.Log
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
 import androidx.compose.material.Icon
@@ -17,7 +16,7 @@ fun PreviewMonaBottomBar() {
 }
 
 @Composable
-fun SectionBottomBar() {
+fun SectionBottomBar(onNavigationItemClick: (bottomBarItem: BottomBarItem) -> Unit = {}) {
     BottomNavigation(
         backgroundColor = Color.White,
         contentColor = Color.Green
@@ -29,7 +28,7 @@ fun SectionBottomBar() {
                 unselectedContentColor = Grey900,
                 selected = it.name == "Home",
                 onClick = {
-                    Log.d("asdf", "clicked!")
+                    onNavigationItemClick(it)
                 })
         }
     }

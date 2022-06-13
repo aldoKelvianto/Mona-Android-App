@@ -12,12 +12,12 @@ import com.example.mona.state.BottomBarItem
 @Preview
 @Composable
 fun PreviewMonaBottomBar() {
-    SectionBottomBar(BottomBarItem.Home.route)
+    SectionBottomBar()
 }
 
 @Composable
 fun SectionBottomBar(
-    currentRoute: String,
+    currentRoute: String = BottomBarItem.Home.route,
     bottomBarItemList: List<BottomBarItem> = BottomBarItem.values().asList(),
     onNavigationItemClick: (bottomBarItem: BottomBarItem) -> Unit = {}
 ) {

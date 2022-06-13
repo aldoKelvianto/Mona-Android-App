@@ -12,7 +12,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
@@ -30,7 +29,7 @@ fun ScreenHome() {
     val scrollState = rememberScrollState()
     val navController = rememberNavController()
     val navBackStackEntry by navController.currentBackStackEntryAsState()
-    val currentDestination = navBackStackEntry?.destination
+    val currentRoute = navBackStackEntry?.destination?.route ?: BottomBarItem.Home.route
     val bottomBarItemList = remember {
         mutableStateListOf<BottomBarItem>().apply { addAll(BottomBarItem.values()) }
     }
@@ -62,22 +61,11 @@ fun ScreenHome() {
             }
         },
         bottomBar = {
-            SectionBottomBar(navController, bottomBarItemList) { clickedBottomBarItem ->
-                if (clickedBottomBarItem.route == currentDestination?.route) {
+            SectionBottomBar(currentRoute, bottomBarItemList) { clickedBottomBarItem ->
+                if (clickedBottomBarItem.route == currentRoute) {
                     return@SectionBottomBar
                 }
-                navController.navigate(clickedBottomBarItem.route) {
-                    // Pop up to the start destination of the graph to
-                    // avoid building up a large stack of destinations
-                    // on the back stack as users select items
-                    popUpTo(navController.graph.findStartDestination().id) {
-                        saveState = true
-                    }
-                    // Avoid multiple copies of the same destination when re-selecting the same item
-                    launchSingleTop = true
-                    // Restore state when re-selecting a previously selected item
-                    restoreState = true
-                }
+                navController.navigate(clickedBottomBarItem.route)
             }
         }
     )

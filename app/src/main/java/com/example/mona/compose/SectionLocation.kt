@@ -24,7 +24,7 @@ fun SectionLocation() {
             .fillMaxWidth()
             .padding(vertical = 8.dp, horizontal = 12.dp)
     ) {
-        val (text, chevron) = createRefs()
+        val (text, chevron, distance, point) = createRefs()
         Text(
             modifier = Modifier.constrainAs(text) {
                 top.linkTo(parent.top)
@@ -46,6 +46,14 @@ fun SectionLocation() {
             painter = painterResource(id = R.drawable.ic_chevron_outline_24),
             contentDescription = "Location icon",
             tint = Color.White
+        )
+        Distance(
+            modifier = Modifier
+                .constrainAs(distance) {
+                    top.linkTo(parent.top)
+                    start.linkTo(chevron.end)
+                    bottom.linkTo(parent.bottom)
+                }
         )
     }
 }

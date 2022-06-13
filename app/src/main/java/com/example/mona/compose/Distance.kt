@@ -12,14 +12,14 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.mona.theme.Orange800
-import com.example.mona.theme.Yellow500
+import com.example.mona.theme.YellowLight500
 
 @Composable
-fun Distance() {
+fun Distance(modifier: Modifier = Modifier) {
     Box(
-        modifier = Modifier
+        modifier = modifier
             .clip(RoundedCornerShape(6.dp))
-            .background(Yellow500)
+            .background(YellowLight500)
             .padding(4.dp)
     ) {
         Text(

@@ -1,8 +1,10 @@
-package com.example.mona.compose
+package com.example.mona.theme
 
 import androidx.compose.ui.graphics.Color
 
 val Red900 = Color(0xffb71c1c)
+val Yellow500 = Color(0xffffeb3b)
+val Orange800 = Color(0xffef6c00)
 val Indigo900 = Color(0xff1a237e)
 val Blue700 = Color(0xff1976d2)
 val Blue900 = Color(0xff0d47a1)

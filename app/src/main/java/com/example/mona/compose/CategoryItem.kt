@@ -20,6 +20,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.mona.data.Category
 import com.example.mona.data.Category1
+import com.example.mona.theme.Blue900
+import com.example.mona.theme.ItemCategoryColors
 
 @Preview
 @Composable

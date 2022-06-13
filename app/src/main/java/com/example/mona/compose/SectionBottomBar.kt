@@ -8,6 +8,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.mona.state.BottomBarItem
+import com.example.mona.theme.Blue700
+import com.example.mona.theme.Grey900
 
 @Preview
 @Composable

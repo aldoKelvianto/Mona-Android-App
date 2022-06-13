@@ -1,9 +1,8 @@
 package com.example.mona
 
+import androidx.compose.ui.test.*
 import androidx.compose.ui.test.junit4.createComposeRule
-import androidx.compose.ui.test.onNodeWithContentDescription
-import androidx.compose.ui.test.onNodeWithText
-import androidx.compose.ui.test.performClick
+import androidx.test.core.app.ActivityScenario
 import com.example.mona.compose.ScreenHome
 import com.example.mona.state.BottomBarItem
 import org.junit.Before
@@ -42,5 +41,35 @@ class BottomNavigationTest {
         // Then
         val textNode = composeTestRule.onNodeWithText("This is profile screen")
         textNode.assertForNonClickable()
+    }
+
+    @Test
+    fun `backstack simulation test`() {
+        ActivityScenario.launch(MainActivity::class.java)
+            .use { scenario ->
+                scenario.onActivity { activity: MainActivity ->
+                    val greetingNode = composeTestRule.onNodeWithText("Hey Traveller")
+                    val gridNode = composeTestRule.onNodeWithText("Makanan")
+                    greetingNode.assertForNonClickable()
+                    gridNode.assertForNonClickable()
+
+                    val bottomNode = composeTestRule.onNodeWithContentDescription(BottomBarItem.Profile.route)
+                    bottomNode.assertForClickable()
+                    bottomNode.performClick()
+
+                    val textNode = composeTestRule.onNodeWithText("This is profile screen")
+                    textNode.assertForNonClickable()
+                    greetingNode.assertDoesNotExist()
+                    gridNode.assertDoesNotExist()
+
+                    activity.onBackPressed()
+                    greetingNode.assertForNonClickable()
+                    gridNode.assertForNonClickable()
+                }
+            }
+
+        // An alternative to ActivityScenario is to use AndroidComposeTestRule
+        // val composeTestRule = createAndroidComposeRule<MainActivity>()
+        // See: https://developer.android.com/reference/kotlin/androidx/compose/ui/test/junit4/AndroidComposeTestRule
     }
 }

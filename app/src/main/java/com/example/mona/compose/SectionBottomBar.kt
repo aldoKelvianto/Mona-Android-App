@@ -8,8 +8,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.mona.state.BottomBarItem
-import com.example.mona.theme.Blue700
-import com.example.mona.theme.Grey900
 
 @Preview
 @Composable
@@ -26,11 +24,13 @@ fun SectionBottomBar(
         backgroundColor = Color.White,
         contentColor = Color.Green
     ) {
+        val blue = Color(0xff2A5DC2)
+        val black = Color(0xff242424)
         bottomBarItemList.forEach {
             BottomNavigationItem(
                 icon = { Icon(painterResource(id = it.icon), contentDescription = "Desc") },
-                selectedContentColor = Blue700,
-                unselectedContentColor = Grey900,
+                selectedContentColor = blue,
+                unselectedContentColor = black,
                 selected = it.isSelected,
                 onClick = {
                     onNavigationItemClick(it)

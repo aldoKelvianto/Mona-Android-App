@@ -20,8 +20,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.mona.data.Category
 import com.example.mona.data.Category1
-import com.example.mona.theme.Blue900
-import com.example.mona.theme.ItemCategoryColors
 
 @Preview
 @Composable
@@ -58,10 +56,13 @@ fun PreviewCategoryItem() {
 }
 
 private fun Modifier.categoryBackground(isHighlight: Boolean): Modifier {
+    val lightBlue = Color(0xffD3E8FC)
+    val darkBlue = Color(0xff2E6BB5)
+    val colors = listOf(lightBlue, darkBlue)
     val gradient = Brush.radialGradient(
-        colors = ItemCategoryColors,
-        radius = 250f,
-        center = Offset(120f, 50f)
+        colors = colors,
+        radius = 180f,
+        center = Offset(110f, 50f)
     )
     return if (isHighlight) {
         background(gradient)
@@ -72,6 +73,7 @@ private fun Modifier.categoryBackground(isHighlight: Boolean): Modifier {
 
 @Composable
 fun CategoryItem(category: Category) {
+    val blue = Color(0xff2E5992)
     Card(
         elevation = 10.dp,
         shape = RoundedCornerShape(8.dp)
@@ -88,7 +90,7 @@ fun CategoryItem(category: Category) {
                 modifier = Modifier.width(82.dp),
                 fontSize = 12.sp,
                 fontWeight = FontWeight.Bold,
-                color = Blue900,
+                color = blue,
                 textAlign = TextAlign.Center
             )
             Row {

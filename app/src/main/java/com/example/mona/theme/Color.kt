@@ -11,5 +11,18 @@ val Blue900 = Color(0xff0d47a1)
 val LightBlue50 = Color(0xffe1f5fe)
 val Grey900 = Color(0xff212121)
 
+object Mona {
+    val Red = Color(0xffC9000F)
+    val Purple = Color(0xff090955)
+    val LightOrange = Color(0xffFFF4B1)
+    val Orange = Color(0xffD28A30)
+    val White = Color(0xffF6FCFF)
+    val LightBlue = Color(0xffD3E8FC)
+    val DarkBlue = Color(0xff2E6BB5)
+    val TextBlue = Color(0xff2E5992)
+    val CategoryWhite = Color(0xffFFFFFF)
+    val Grey = Color(0xffB9BCC7)
+}
+
 val ItemCategoryColors = listOf(LightBlue50, Blue900)
 val HeaderColors = listOf(Red900, Indigo900)

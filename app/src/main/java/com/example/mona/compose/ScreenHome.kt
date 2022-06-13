@@ -60,7 +60,18 @@ fun ScreenHome() {
                 if (clickedBottomBarItem.route == currentRoute) {
                     return@SectionBottomBar
                 }
-                navController.navigate(clickedBottomBarItem.route)
+                navController.navigate(clickedBottomBarItem.route) {
+                    // Pop up to the start destination of the graph to
+                    // avoid building up a large stack of destinations
+                    // on the back stack as users select items
+                    navController.graph.startDestinationRoute?.let { route ->
+                        popUpTo(route) {
+                            saveState = true
+                        }
+                    }
+                    // Restore state when re-selecting a previously selected item
+                    restoreState = true
+                }
             }
         }
     )

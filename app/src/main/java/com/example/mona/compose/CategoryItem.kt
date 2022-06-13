@@ -61,7 +61,7 @@ private fun Modifier.categoryBackground(isHighlight: Boolean): Modifier {
     val colors = listOf(lightBlue, darkBlue)
     val gradient = Brush.radialGradient(
         colors = colors,
-        radius = 180f,
+        radius = 170f,
         center = Offset(110f, 50f)
     )
     return if (isHighlight) {

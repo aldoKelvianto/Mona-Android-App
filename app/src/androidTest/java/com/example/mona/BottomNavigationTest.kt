@@ -16,6 +16,19 @@ class BottomNavigationTest {
     val composeTestRule = createComposeRule()
 
     @Test
+    fun homeScreenTest() {
+        // Given
+        composeTestRule.setContent {
+            ScreenHome()
+        }
+        // When
+        val textNode: SemanticsNodeInteraction =
+            composeTestRule.onNodeWithText("Hey Traveller")
+        // Then
+        textNode.assertExists()
+    }
+
+    @Test
     fun test1() {
         // Given
         composeTestRule.setContent {

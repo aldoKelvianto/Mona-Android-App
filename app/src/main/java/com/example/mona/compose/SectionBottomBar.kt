@@ -29,7 +29,7 @@ fun SectionBottomBar(
         val black = Color(0xff242424)
         bottomBarItemList.forEach {
             BottomNavigationItem(
-                icon = { Icon(painterResource(id = it.icon), contentDescription = "Desc") },
+                icon = { Icon(painterResource(id = it.icon), contentDescription = it.route) },
                 selectedContentColor = blue,
                 unselectedContentColor = black,
                 selected = currentRoute == it.route,

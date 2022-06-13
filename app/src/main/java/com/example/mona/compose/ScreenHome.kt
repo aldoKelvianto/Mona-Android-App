@@ -1,21 +1,23 @@
 package com.example.mona.compose
 
+import android.text.method.TextKeyListener.clear
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Scaffold
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateListOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.toMutableStateList
+import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavDestination.Companion.hierarchy
+import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.mona.state.BottomBarItem
+import java.util.Collections.addAll
 
 @Preview
 @Composable
@@ -27,6 +29,8 @@ fun PreviewScreenHome() {
 fun ScreenHome() {
     val scrollState = rememberScrollState()
     val navController = rememberNavController()
+    val navBackStackEntry by navController.currentBackStackEntryAsState()
+    val currentDestination = navBackStackEntry?.destination
     val bottomBarItemList = remember {
         mutableStateListOf<BottomBarItem>().apply { addAll(BottomBarItem.values()) }
     }
@@ -59,14 +63,26 @@ fun ScreenHome() {
         },
         bottomBar = {
             SectionBottomBar(bottomBarItemList) { clickedBottomBarItem ->
+                if (clickedBottomBarItem.route == currentDestination?.route) {
+                    return@SectionBottomBar
+                }
                 bottomBarItemList.apply {
                     clear()
                     addAll(BottomBarItem.values().toMutableList().map {  item ->
-                        item.isSelected = item.route == clickedBottomBarItem.route
+                        item.isSelected = item.route == currentDestination?.route
+//                        item.isSelected = item.route == clickedBottomBarItem.route
                         item
                     })
                 }
-                navController.navigate(clickedBottomBarItem.route)
+                navController.navigate(clickedBottomBarItem.route) {
+                    // Pop up to the start destination of the graph to
+                    // avoid building up a large stack of destinations
+                    // on the back stack as users select items
+                    popUpTo(navController.graph.findStartDestination().id) {
+                        saveState = true
+                    }
+                    restoreState = true
+                }
             }
         }
     )

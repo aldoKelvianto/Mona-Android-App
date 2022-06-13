@@ -21,9 +21,9 @@ import com.example.mona.R
 import com.example.mona.theme.Grey900
 
 @Composable
-fun Point() {
+fun Point(modifier: Modifier = Modifier) {
     Column(
-        modifier = Modifier
+        modifier = modifier
             .clip(RoundedCornerShape(8.dp))
             .background(Color.White)
             .padding(4.dp),

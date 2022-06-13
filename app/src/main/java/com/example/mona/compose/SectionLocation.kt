@@ -1,6 +1,5 @@
 package com.example.mona.compose
 
-import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Icon
@@ -20,32 +19,32 @@ import com.example.mona.R
 
 @Composable
 fun SectionLocation() {
-    BoxWithConstraints(
+    ConstraintLayout(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(vertical = 8.dp, horizontal = 12.dp)
+            .padding(vertical = 8.dp, horizontal = 12.dp),
+        constraintSet = sectionLocationConstraint()
     ) {
-        ConstraintLayout(
-            sectionLocationConstraint()
-        ) {
-            Text(
-                modifier = Modifier.layoutId("text"),
-                text = "Mondstadt",
-                color = Color.White,
-                fontWeight = FontWeight.Bold
-            )
-            Icon(
-                modifier = Modifier
-                    .layoutId("chevron")
-                    .rotate(90f),
-                painter = painterResource(id = R.drawable.ic_chevron_outline_24),
-                contentDescription = "Location icon",
-                tint = Color.White
-            )
-            Distance(
-                modifier = Modifier.layoutId("distance")
-            )
-        }
+        Text(
+            modifier = Modifier.layoutId("text"),
+            text = "Mondstadt",
+            color = Color.White,
+            fontWeight = FontWeight.Bold
+        )
+        Icon(
+            modifier = Modifier
+                .layoutId("chevron")
+                .rotate(90f),
+            painter = painterResource(id = R.drawable.ic_chevron_outline_24),
+            contentDescription = "Location icon",
+            tint = Color.White
+        )
+        Distance(
+            modifier = Modifier.layoutId("distance")
+        )
+        Point(
+            modifier = Modifier.layoutId("point")
+        )
     }
 }
 
@@ -55,6 +54,7 @@ private fun sectionLocationConstraint() = ConstraintSet {
     val text = createRefFor("text")
     val chevron = createRefFor("chevron")
     val distance = createRefFor("distance")
+    val point = createRefFor("point")
 
     constrain(text) {
         top.linkTo(parent.top)
@@ -69,6 +69,11 @@ private fun sectionLocationConstraint() = ConstraintSet {
     constrain(distance) {
         top.linkTo(parent.top)
         start.linkTo(chevron.end)
+        bottom.linkTo(parent.bottom)
+    }
+    constrain(point) {
+        top.linkTo(parent.top)
+        end.linkTo(parent.end)
         bottom.linkTo(parent.bottom)
     }
 }

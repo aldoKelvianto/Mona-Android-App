@@ -14,6 +14,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.zIndex
 import com.example.mona.theme.HeaderColors
+import com.example.mona.theme.Mona
 
 @Composable
 fun SectionTop() {
@@ -38,9 +39,9 @@ fun SectionTop() {
             SectionBanner()
         }
         val radialGradient = Brush.radialGradient(
-            colors = HeaderColors,
+            colors = Mona.HeaderColors,
             radius = 550f,
-            center = Offset(606f, 10f)
+            center = Offset(606f, -100f)
         )
         val heightInDp = with(LocalDensity.current) {
             height.value.toDp()

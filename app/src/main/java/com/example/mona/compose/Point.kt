@@ -19,6 +19,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.mona.R
 import com.example.mona.theme.Grey900
+import com.example.mona.theme.Mona
 
 @Composable
 fun Point(modifier: Modifier = Modifier) {
@@ -26,7 +27,7 @@ fun Point(modifier: Modifier = Modifier) {
         modifier = modifier
             .clip(RoundedCornerShape(8.dp))
             .background(Color.White)
-            .padding(4.dp),
+            .padding(vertical = 4.dp, horizontal = 6.dp),
     ) {
         Row(
             verticalAlignment = Alignment.CenterVertically
@@ -38,7 +39,7 @@ fun Point(modifier: Modifier = Modifier) {
                     .size(24.dp)
                     .padding(2.dp)
             )
-            Text(text = "100", style = TextStyle(Grey900))
+            Text(text = "100", style = TextStyle(Mona.TextBlack))
         }
     }
 }

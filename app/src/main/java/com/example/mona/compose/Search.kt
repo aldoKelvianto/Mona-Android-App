@@ -14,6 +14,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.mona.R
+import com.example.mona.theme.Mona
 
 @Composable
 fun RowScope.Search(hint: String) {
@@ -32,7 +33,7 @@ fun RowScope.Search(hint: String) {
             contentDescription = "Search icon"
         )
         Spacer(modifier = Modifier.size(4.dp))
-        Text(text = hint, color = Color.Gray)
+        Text(text = hint, color = Mona.Grey)
     }
 }
 

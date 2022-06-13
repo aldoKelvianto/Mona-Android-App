@@ -6,6 +6,9 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -19,12 +22,15 @@ fun PreviewSectionGreeting() {
 
 @Composable
 fun SectionGreeting() {
-    Column(Modifier.padding(vertical = 8.dp, horizontal = 12.dp)) {
+    Column(Modifier.padding(vertical = 4.dp, horizontal = 12.dp)) {
         Text(
             text = "Hey Traveller",
-            fontWeight = FontWeight.Bold,
-            color = Color.White,
-            fontSize = 24.sp
+            style = TextStyle(
+                fontWeight = FontWeight.Bold,
+                fontFamily = FontFamily.SansSerif,
+                color = Color.White,
+                fontSize = 26.sp
+            )
         )
     }
 }

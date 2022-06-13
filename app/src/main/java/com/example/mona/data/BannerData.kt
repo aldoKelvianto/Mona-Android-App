@@ -13,9 +13,5 @@ object BannerData {
         Banner(resId = R.drawable.ic_banner_2),
         Banner(resId = R.drawable.ic_banner_3),
         Banner(resId = R.drawable.ic_banner_4),
-        banner1,
-        Banner(resId = R.drawable.ic_banner_2),
-        Banner(resId = R.drawable.ic_banner_3),
-        Banner(resId = R.drawable.ic_banner_4),
     )
 }

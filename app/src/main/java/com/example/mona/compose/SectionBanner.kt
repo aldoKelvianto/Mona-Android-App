@@ -19,6 +19,7 @@ import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import com.example.mona.data.Banner
 import com.example.mona.data.BannerData
+import com.example.mona.data.BannerData.items
 import dev.chrisbanes.snapper.ExperimentalSnapperApi
 import dev.chrisbanes.snapper.rememberSnapperFlingBehavior
 
@@ -41,7 +42,7 @@ fun SectionBanner() {
             lazyListState = lazyListState,
             endContentPadding = contentPadding.calculateEndPadding(LayoutDirection.Ltr),
         ),
-        horizontalArrangement = Arrangement.spacedBy(4.dp),
+        horizontalArrangement = Arrangement.spacedBy(8.dp),
     ) {
         items(items) { item ->
             Banner(item)

@@ -15,11 +15,11 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.mona.R
-import com.example.mona.theme.Grey900
-import com.example.mona.theme.Mona
 
 @Composable
 fun Point(modifier: Modifier = Modifier) {
@@ -39,7 +39,12 @@ fun Point(modifier: Modifier = Modifier) {
                     .size(24.dp)
                     .padding(2.dp)
             )
-            Text(text = "100", style = TextStyle(Mona.TextBlack))
+            val black = Color(0xff242424)
+            Text(
+                text = "0",
+                modifier = Modifier.padding(start = 4.dp),
+                style = TextStyle(color = black, fontSize = 12.sp, fontWeight = FontWeight.SemiBold)
+            )
         }
     }
 }

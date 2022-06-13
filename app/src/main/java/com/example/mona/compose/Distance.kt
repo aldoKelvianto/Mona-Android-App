@@ -8,27 +8,27 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.mona.theme.Mona
-import com.example.mona.theme.Orange800
-import com.example.mona.theme.YellowLight500
 
 @Composable
 fun Distance(modifier: Modifier = Modifier) {
+    val lightOrange = Color(0xffFFF4B1)
+    val orange = Color(0xffE87600)
     Box(
         modifier = modifier
             .clip(RoundedCornerShape(6.dp))
-            .background(Mona.LightOrange)
+            .background(lightOrange)
             .padding(4.dp)
     ) {
         Text(
             text = "15 menit",
             style = TextStyle(
-                color = Mona.Orange,
+                color = orange,
                 fontWeight = FontWeight.SemiBold,
                 fontSize = 12.sp
             ),

@@ -34,7 +34,9 @@ fun Point(modifier: Modifier = Modifier) {
             Image(
                 painter = painterResource(id = R.drawable.ic_mora),
                 contentDescription = "Mora icon",
-                modifier = Modifier.size(24.dp)
+                modifier = Modifier
+                    .size(24.dp)
+                    .padding(2.dp)
             )
             Text(text = "100", style = TextStyle(Grey900))
         }

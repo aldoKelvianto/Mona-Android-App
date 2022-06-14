@@ -1,4 +1,4 @@
-package com.example.mona.compose
+package com.example.mona.ui.search
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*

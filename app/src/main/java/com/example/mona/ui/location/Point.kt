@@ -1,4 +1,4 @@
-package com.example.mona.compose
+package com.example.mona.ui.location
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -22,7 +22,7 @@ import androidx.compose.ui.unit.sp
 import com.example.mona.R
 
 @Composable
-fun Point(modifier: Modifier = Modifier, point: String = "0") {
+fun Point(modifier: Modifier = Modifier, point: String) {
     Column(
         modifier = modifier
             .clip(RoundedCornerShape(8.dp))
@@ -52,5 +52,5 @@ fun Point(modifier: Modifier = Modifier, point: String = "0") {
 @Preview
 @Composable
 fun PreviewPoint() {
-    Point()
+    Point(point = "0")
 }

@@ -1,4 +1,4 @@
-package com.example.mona.compose
+package com.example.mona.ui.location
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -18,7 +18,7 @@ import androidx.constraintlayout.compose.layoutId
 import com.example.mona.R
 
 @Composable
-fun SectionLocation() {
+fun SectionLocation(state: LocationState) {
     ConstraintLayout(
         modifier = Modifier
             .fillMaxWidth()
@@ -27,7 +27,7 @@ fun SectionLocation() {
     ) {
         Text(
             modifier = Modifier.layoutId("text"),
-            text = "Mondstadt",
+            text = state.location,
             color = Color.White,
             fontWeight = FontWeight.Bold
         )
@@ -40,10 +40,12 @@ fun SectionLocation() {
             tint = Color.White
         )
         Distance(
-            modifier = Modifier.layoutId("distance")
+            modifier = Modifier.layoutId("distance"),
+            distance = state.distance
         )
         Point(
-            modifier = Modifier.layoutId("point")
+            modifier = Modifier.layoutId("point"),
+            point = state.point
         )
     }
 }
@@ -81,5 +83,10 @@ private fun sectionLocationConstraint() = ConstraintSet {
 @Preview(backgroundColor = 0xff212121, showBackground = true, widthDp = 320, heightDp = 640)
 @Composable
 fun PreviewSectionLocation() {
-    SectionLocation()
+    val state = LocationState(
+        "Mondstadt",
+        "15 minutes",
+        "0"
+    )
+    SectionLocation(state)
 }

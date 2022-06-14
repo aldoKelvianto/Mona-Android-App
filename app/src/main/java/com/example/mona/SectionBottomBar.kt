@@ -1,4 +1,4 @@
-package com.example.mona.compose
+package com.example.mona
 
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
@@ -7,7 +7,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.mona.state.BottomBarItem
 
 @Preview
 @Composable

@@ -1,30 +1,24 @@
-package com.example.mona.compose
+package com.example.mona
 
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.example.mona.state.BottomBarItem
+import com.example.mona.ui.ScreenHome
+import com.example.mona.ui.ScreenText
 
 @Preview
 @Composable
-fun PreviewScreenHome() {
-    ScreenHome()
+fun PreviewMonaApp() {
+    MonaApp()
 }
 
 @Composable
-fun ScreenHome() {
-    val scrollState = rememberScrollState()
+fun MonaApp(monaAppState: MonaAppState) {
     val navController = rememberNavController()
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentRoute = navBackStackEntry?.destination?.route ?: BottomBarItem.Home.route
@@ -32,17 +26,8 @@ fun ScreenHome() {
         content = { paddingValues ->
             NavHost(navController = navController, startDestination = BottomBarItem.Home.route) {
                 composable(BottomBarItem.Home.route) {
-                    Column(
-                        modifier = Modifier
-                            .verticalScroll(
-                                state = scrollState,
-                                enabled = true
-                            )
-                            .padding(bottom = paddingValues.calculateBottomPadding() + 12.dp)
-                    ) {
-                        SectionTop()
-                        SectionCategory()
-                    }
+                    bottomPadding = paddingValues.calculateBottomPadding()
+                    ScreenHome(monaAppState.screenHomeState)
                 }
                 composable(BottomBarItem.Cart.route) {
                     ScreenText(text = "This is cart screen")

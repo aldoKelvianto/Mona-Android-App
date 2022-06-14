@@ -4,9 +4,9 @@ import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onAllNodesWithText
 import androidx.compose.ui.test.onFirst
 import androidx.compose.ui.test.onNodeWithText
-import com.example.mona.compose.SectionCategory
-import com.example.mona.compose.SectionGreeting
-import com.example.mona.compose.SectionLocation
+import com.example.mona.ui.category.SectionCategory
+import com.example.mona.ui.greeting.SectionGreeting
+import com.example.mona.ui.location.SectionLocation
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test

@@ -1,4 +1,4 @@
-package com.example.mona.compose
+package com.example.mona.ui.search
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.Composable
@@ -10,18 +10,18 @@ import androidx.compose.ui.unit.dp
 @Preview(showBackground = true, backgroundColor = 0xff212121, widthDp = 320, heightDp = 640)
 @Composable
 fun PreviewSectionSearchFavorite() {
-    SectionSearchFavorite()
+    SectionSearch("Cari produk disini")
 }
 
 @Composable
-fun SectionSearchFavorite() {
+fun SectionSearch(hint: String) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
             .padding(vertical = 8.dp, horizontal = 12.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        Search(hint = "Cari produk disini")
+        Search(hint = hint)
         Spacer(modifier = Modifier.size(8.dp))
         Favorite()
     }

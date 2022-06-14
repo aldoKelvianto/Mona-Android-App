@@ -1,4 +1,4 @@
-package com.example.mona.compose
+package com.example.mona.ui
 
 import android.os.Build
 import androidx.compose.foundation.layout.Column
@@ -6,9 +6,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 

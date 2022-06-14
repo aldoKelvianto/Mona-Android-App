@@ -1,4 +1,4 @@
-package com.example.mona.compose
+package com.example.mona.ui.location
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -16,7 +16,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun Distance(modifier: Modifier = Modifier, text: String = "15 menit") {
+fun Distance(modifier: Modifier = Modifier, distance: String) {
     val lightOrange = Color(0xffFFF4B1)
     val orange = Color(0xffE87600)
     Box(
@@ -26,7 +26,7 @@ fun Distance(modifier: Modifier = Modifier, text: String = "15 menit") {
             .padding(4.dp)
     ) {
         Text(
-            text = text,
+            text = distance,
             style = TextStyle(
                 color = orange,
                 fontWeight = FontWeight.SemiBold,
@@ -39,5 +39,5 @@ fun Distance(modifier: Modifier = Modifier, text: String = "15 menit") {
 @Preview
 @Composable
 fun PreviewDistance() {
-    Distance()
+    Distance(distance = "15 menit")
 }

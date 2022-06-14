@@ -1,4 +1,4 @@
-package com.example.mona.compose
+package com.example.mona.ui.banner
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
@@ -23,14 +23,12 @@ import dev.chrisbanes.snapper.rememberSnapperFlingBehavior
 @Preview(showBackground = true, backgroundColor = 0xff212121, widthDp = 320, heightDp = 640)
 @Composable
 fun PreviewSectionBanner() {
-    SectionBanner()
+    SectionBanner(BannerData.items)
 }
 
-// Command, option, shift, R
 @OptIn(ExperimentalSnapperApi::class)
 @Composable
-fun SectionBanner() {
-    val items = BannerData.items
+fun SectionBanner(bannerList: List<Banner>) {
     val lazyListState = rememberLazyListState()
     val contentPadding = PaddingValues(12.dp)
     LazyRow(
@@ -44,7 +42,7 @@ fun SectionBanner() {
         modifier = Modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.spacedBy(8.dp),
     ) {
-        items(items) { item ->
+        items(bannerList) { item ->
             Banner(item)
         }
     }

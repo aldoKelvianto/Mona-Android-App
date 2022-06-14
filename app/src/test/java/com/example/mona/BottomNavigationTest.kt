@@ -5,8 +5,6 @@ import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
 import androidx.test.core.app.ActivityScenario
-import com.example.mona.compose.ScreenHome
-import com.example.mona.state.BottomBarItem
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -32,7 +30,7 @@ class BottomNavigationTest {
     fun `profile screen navigation`() {
         // Given
         composeTestRule.setContent {
-            ScreenHome()
+            MonaApp()
         }
 
         // When

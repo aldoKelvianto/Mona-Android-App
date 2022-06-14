@@ -1,4 +1,4 @@
-package com.example.mona.compose
+package com.example.mona.ui.category
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -8,18 +8,19 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.mona.data.Category
 import com.example.mona.data.ItemCategoryData
 
 @Preview
 @Composable
 fun PreviewSectionCategory() {
-    SectionCategory()
+    SectionCategory(ItemCategoryData.itemList)
 }
 
 @Composable
-fun SectionCategory() {
+fun SectionCategory(categoryList: List<Category>) {
     val columnCount = 3
-    val list = ItemCategoryData.itemList.chunked(columnCount)
+    val list = categoryList.chunked(columnCount)
     Column(
         modifier = Modifier.fillMaxWidth(),
         verticalArrangement = Arrangement.spacedBy(12.dp)

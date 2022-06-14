@@ -55,7 +55,7 @@ class BottomNavigationTest {
                 greetingNode.assertDisplayedExists()
                 gridNode.assertDisplayedExists()
 
-                // Click profile in bottom navigation
+                // Click bottom navigation - profile
                 val profileBottomNode =
                     composeTestRule.onNodeWithContentDescription(BottomBarItem.Profile.route)
                 profileBottomNode.assertDisplayedExistsClickable()
@@ -67,8 +67,10 @@ class BottomNavigationTest {
                 greetingNode.assertDoesNotExist()
                 gridNode.assertDoesNotExist()
 
-                // Home screen again
+                // Press back one time
                 activity.onBackPressed()
+
+                // Home screen
                 greetingNode.assertDisplayedExists()
                 gridNode.assertDisplayedExists()
             }
@@ -84,28 +86,46 @@ class BottomNavigationTest {
                 greetingNode.assertDisplayedExists()
                 gridNode.assertDisplayedExists()
 
+                // Click bottom navigation - profile
                 val profileBottomNode =
                     composeTestRule.onNodeWithContentDescription(BottomBarItem.Profile.route)
                 profileBottomNode.assertDisplayedExistsClickable()
                 profileBottomNode.performClick()
 
+                // Profile screen
                 val profileTextNode = composeTestRule.onNodeWithText("This is profile screen")
                 profileTextNode.assertDisplayedExists()
                 greetingNode.assertDoesNotExist()
                 gridNode.assertDoesNotExist()
 
+                // Click bottom navigation - history
                 val historyBottomNode =
                     composeTestRule.onNodeWithContentDescription(BottomBarItem.History.route)
                 historyBottomNode.assertDisplayedExistsClickable()
                 historyBottomNode.performClick()
 
+                // History screen
                 val textNode = composeTestRule.onNodeWithText("This is history screen")
                 textNode.assertDisplayedExists()
                 greetingNode.assertDoesNotExist()
                 gridNode.assertDoesNotExist()
 
+                // Click bottom navigation - cart
+                val cartBottomNode =
+                    composeTestRule.onNodeWithContentDescription(BottomBarItem.Cart.route)
+                cartBottomNode.assertDisplayedExistsClickable()
+                cartBottomNode.performClick()
+
+                // Cart screen
+                val cartTextNode = composeTestRule.onNodeWithText("This is cart screen")
+                cartTextNode.assertDisplayedExists()
+                greetingNode.assertDoesNotExist()
+                gridNode.assertDoesNotExist()
+
+                // Press back one time
                 activity.onBackPressed()
 
+                // Home screen
                 greetingNode.assertDisplayedExists()
                 gridNode.assertDisplayedExists()
             }

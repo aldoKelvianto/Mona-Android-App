@@ -12,6 +12,9 @@ fun ThemeMona(
 ) {
     val sysUiController = rememberSystemUiController()
     SideEffect {
+//    sysUiController.isSystemBarsVisible = false
+//    sysUiController.statusBarDarkContentEnabled = false
+//    sysUiController.isNavigationBarVisible = false
         sysUiController.setSystemBarsColor(
             color = Color.Transparent
         )

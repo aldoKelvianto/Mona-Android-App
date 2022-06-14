@@ -15,7 +15,7 @@ import androidx.compose.ui.unit.dp
 import com.example.mona.R
 
 @Composable
-fun RowScope.Search(hint: String) {
+fun RowScope.Search(hint: String = "Cari produk disini") {
     Row(
         modifier = Modifier
             .background(
@@ -39,8 +39,7 @@ fun RowScope.Search(hint: String) {
 @Preview(showBackground = true, backgroundColor = 0xff212121, widthDp = 320, heightDp = 640)
 @Composable
 fun PreviewSearch() {
-    val hint = "Cari produk disini"
     Row {
-        Search(hint)
+        Search()
     }
 }

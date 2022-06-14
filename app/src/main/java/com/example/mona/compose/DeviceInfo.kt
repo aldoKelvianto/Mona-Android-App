@@ -12,7 +12,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-
+/**
+ * Not used in Mona, but useful for debugging
+ */
 @Preview(showBackground = true)
 @Composable
 fun PreviewDeviceInfo() {

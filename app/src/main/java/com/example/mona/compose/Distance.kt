@@ -16,7 +16,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun Distance(modifier: Modifier = Modifier) {
+fun Distance(modifier: Modifier = Modifier, text: String = "15 menit") {
     val lightOrange = Color(0xffFFF4B1)
     val orange = Color(0xffE87600)
     Box(
@@ -26,7 +26,7 @@ fun Distance(modifier: Modifier = Modifier) {
             .padding(4.dp)
     ) {
         Text(
-            text = "15 menit",
+            text = text,
             style = TextStyle(
                 color = orange,
                 fontWeight = FontWeight.SemiBold,

@@ -3,7 +3,6 @@ package com.example.mona.compose
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
@@ -33,7 +32,7 @@ fun Favorite() {
     ) {
         Image(
             painter = painterResource(id = R.drawable.ic_favorite_order_24),
-            contentDescription = "Description",
+            contentDescription = "Favorite icon",
         )
     }
 }

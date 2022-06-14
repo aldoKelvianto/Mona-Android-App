@@ -22,7 +22,7 @@ import androidx.compose.ui.unit.sp
 import com.example.mona.R
 
 @Composable
-fun Point(modifier: Modifier = Modifier) {
+fun Point(modifier: Modifier = Modifier, point: String = "0") {
     Column(
         modifier = modifier
             .clip(RoundedCornerShape(8.dp))
@@ -41,7 +41,7 @@ fun Point(modifier: Modifier = Modifier) {
             )
             val black = Color(0xff242424)
             Text(
-                text = "0",
+                text = point,
                 modifier = Modifier.padding(start = 4.dp),
                 style = TextStyle(color = black, fontSize = 12.sp, fontWeight = FontWeight.SemiBold)
             )

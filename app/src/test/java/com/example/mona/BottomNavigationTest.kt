@@ -23,13 +23,13 @@ class BottomNavigationTest {
 
     @Before
     @Throws(Exception::class)
-    fun setUp() {
+    fun `set up`() {
         // Redirect Logcat to console
         ShadowLog.stream = System.out
     }
 
     @Test
-    fun profileScreenNavigation() {
+    fun `profile screen navigation`() {
         // Given
         composeTestRule.setContent {
             ScreenHome()
@@ -37,77 +37,77 @@ class BottomNavigationTest {
 
         // When
         val bottomNode = composeTestRule.onNodeWithContentDescription(BottomBarItem.Profile.route)
-        bottomNode.assertForClickable()
+        bottomNode.assertDisplayedExistsClickable()
         bottomNode.performClick()
 
         // Then
         val textNode = composeTestRule.onNodeWithText("This is profile screen")
-        textNode.assertForNonClickable()
+        textNode.assertDisplayedExists()
     }
 
     @Test
-    fun `backstack simulation test`() {
-        ActivityScenario.launch(MainActivity::class.java)
-            .use { scenario ->
-                scenario.onActivity { activity: MainActivity ->
-                    val greetingNode = composeTestRule.onNodeWithText("Hey Traveller")
-                    val gridNode = composeTestRule.onNodeWithText("Makanan")
-                    greetingNode.assertForNonClickable()
-                    gridNode.assertForNonClickable()
+    fun `one screen navigation`(): Unit = ActivityScenario.launch(MainActivity::class.java)
+        .use { scenario ->
+            scenario.onActivity { activity: MainActivity ->
+                // Home screen
+                val greetingNode = composeTestRule.onNodeWithText("Hey Traveller")
+                val gridNode = composeTestRule.onNodeWithText("Makanan")
+                greetingNode.assertDisplayedExists()
+                gridNode.assertDisplayedExists()
 
-                    val bottomNode =
-                        composeTestRule.onNodeWithContentDescription(BottomBarItem.Profile.route)
-                    bottomNode.assertForClickable()
-                    bottomNode.performClick()
+                // Click profile in bottom navigation
+                val profileBottomNode =
+                    composeTestRule.onNodeWithContentDescription(BottomBarItem.Profile.route)
+                profileBottomNode.assertDisplayedExistsClickable()
+                profileBottomNode.performClick()
 
-                    val textNode = composeTestRule.onNodeWithText("This is profile screen")
-                    textNode.assertForNonClickable()
-                    greetingNode.assertDoesNotExist()
-                    gridNode.assertDoesNotExist()
+                // Profile screen
+                val profileTextNode = composeTestRule.onNodeWithText("This is profile screen")
+                profileTextNode.assertDisplayedExists()
+                greetingNode.assertDoesNotExist()
+                gridNode.assertDoesNotExist()
 
-                    activity.onBackPressed()
-                    greetingNode.assertForNonClickable()
-                    gridNode.assertForNonClickable()
-                }
+                // Home screen again
+                activity.onBackPressed()
+                greetingNode.assertDisplayedExists()
+                gridNode.assertDisplayedExists()
             }
-    }
-
+        }
 
     @Test
-    fun `always home`() {
-        ActivityScenario.launch(MainActivity::class.java)
-            .use { scenario ->
-                scenario.onActivity { activity: MainActivity ->
-                    val greetingNode = composeTestRule.onNodeWithText("Hey Traveller")
-                    val gridNode = composeTestRule.onNodeWithText("Makanan")
-                    greetingNode.assertForNonClickable()
-                    gridNode.assertForNonClickable()
+    fun `multiple screen navigation`(): Unit = ActivityScenario.launch(MainActivity::class.java)
+        .use { scenario ->
+            scenario.onActivity { activity: MainActivity ->
+                // Home screen
+                val greetingNode = composeTestRule.onNodeWithText("Hey Traveller")
+                val gridNode = composeTestRule.onNodeWithText("Makanan")
+                greetingNode.assertDisplayedExists()
+                gridNode.assertDisplayedExists()
 
-                    val bottomNode1 =
-                        composeTestRule.onNodeWithContentDescription(BottomBarItem.Profile.route)
-                    bottomNode1.assertForClickable()
-                    bottomNode1.performClick()
+                val profileBottomNode =
+                    composeTestRule.onNodeWithContentDescription(BottomBarItem.Profile.route)
+                profileBottomNode.assertDisplayedExistsClickable()
+                profileBottomNode.performClick()
 
-                    val textNode1 = composeTestRule.onNodeWithText("This is profile screen")
-                    textNode1.assertForNonClickable()
-                    greetingNode.assertDoesNotExist()
-                    gridNode.assertDoesNotExist()
+                val profileTextNode = composeTestRule.onNodeWithText("This is profile screen")
+                profileTextNode.assertDisplayedExists()
+                greetingNode.assertDoesNotExist()
+                gridNode.assertDoesNotExist()
 
-                    val bottomNode2 =
-                        composeTestRule.onNodeWithContentDescription(BottomBarItem.History.route)
-                    bottomNode2.assertForClickable()
-                    bottomNode2.performClick()
+                val historyBottomNode =
+                    composeTestRule.onNodeWithContentDescription(BottomBarItem.History.route)
+                historyBottomNode.assertDisplayedExistsClickable()
+                historyBottomNode.performClick()
 
-                    val textNode = composeTestRule.onNodeWithText("This is history screen")
-                    textNode.assertForNonClickable()
-                    greetingNode.assertDoesNotExist()
-                    gridNode.assertDoesNotExist()
+                val textNode = composeTestRule.onNodeWithText("This is history screen")
+                textNode.assertDisplayedExists()
+                greetingNode.assertDoesNotExist()
+                gridNode.assertDoesNotExist()
 
-                    activity.onBackPressed()
+                activity.onBackPressed()
 
-                    greetingNode.assertForNonClickable()
-                    gridNode.assertForNonClickable()
-                }
+                greetingNode.assertDisplayedExists()
+                gridNode.assertDisplayedExists()
             }
-    }
+        }
 }

@@ -4,12 +4,12 @@ import androidx.compose.ui.test.SemanticsNodeInteraction
 import androidx.compose.ui.test.assertHasClickAction
 import androidx.compose.ui.test.assertIsDisplayed
 
-fun SemanticsNodeInteraction.assertForNonClickable() = run {
+fun SemanticsNodeInteraction.assertDisplayedExists() = run {
     assertIsDisplayed()
     assertExists()
 }
 
-fun SemanticsNodeInteraction.assertForClickable() = run {
+fun SemanticsNodeInteraction.assertDisplayedExistsClickable() = run {
     assertIsDisplayed()
     assertExists()
     assertHasClickAction()

@@ -21,13 +21,13 @@ class ScreenTest {
 
     @Before
     @Throws(Exception::class)
-    fun setUp() {
+    fun `set up`() {
         // Redirect Logcat to console
         ShadowLog.stream = System.out
     }
 
     @Test
-    fun homeScreenTest() {
+    fun `home screen test`() {
         // Given
         composeTestRule.setContent {
             ScreenHome()
@@ -39,13 +39,13 @@ class ScreenTest {
         val bottomNode = composeTestRule.onNodeWithContentDescription(BottomBarItem.Home.route)
 
         // Then
-        textNode.assertForNonClickable()
-        gridNode.assertForNonClickable()
-        bottomNode.assertForClickable()
+        textNode.assertDisplayedExists()
+        gridNode.assertDisplayedExists()
+        bottomNode.assertDisplayedExistsClickable()
     }
 
     @Test
-    fun negativeTest() {
+    fun `negative case test`() {
         // Given
         composeTestRule.setContent {
             ScreenText(text = "A")
@@ -59,7 +59,7 @@ class ScreenTest {
     }
 
     @Test
-    fun cartScreenTest() {
+    fun `cart screen test`() {
         // Given
         composeTestRule.setContent {
             ScreenText(text = "This is cart screen")
@@ -69,11 +69,11 @@ class ScreenTest {
         val textNode = composeTestRule.onNodeWithText("This is cart screen")
 
         // Then
-        textNode.assertForNonClickable()
+        textNode.assertDisplayedExists()
     }
 
     @Test
-    fun profileScreenTest() {
+    fun `profile screen test`() {
         // Given
         composeTestRule.setContent {
             ScreenText(text = "This is profile screen")
@@ -83,6 +83,6 @@ class ScreenTest {
         val textNode = composeTestRule.onNodeWithText("This is profile screen")
 
         // Then
-        textNode.assertForNonClickable()
+        textNode.assertDisplayedExists()
     }
 }

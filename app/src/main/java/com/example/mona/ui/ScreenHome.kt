@@ -27,12 +27,11 @@ import com.example.mona.ui.search.SectionSearch
 @Preview
 @Composable
 fun PreviewScreenHome() {
-    ScreenHome(bottomPadding =0.dp)
+    ScreenHome(bottomPadding = 0.dp)
 }
 
 @Composable
 fun ScreenHome(
-    state: ScreenHomeState = rememberScreenHomeState(),
     scrollState: ScrollState = rememberScrollState(),
     bottomPadding: Dp
 ) {
@@ -62,7 +61,7 @@ fun ScreenHome(
                         .size(8.dp)
                 )
                 SectionSearch()
-                SectionBanner(state.bannerList)
+                SectionBanner()
             }
             val heightInDp = with(LocalDensity.current) {
                 height.value.toDp()
@@ -78,7 +77,7 @@ fun ScreenHome(
                     .zIndex(0f)
             )
         }
-        SectionCategory(state.categoryList)
+        SectionCategory()
     }
 }
 
@@ -91,15 +90,4 @@ private fun getRadialGradient(): Brush {
         radius = 550f,
         center = Offset(606f, -100f)
     )
-}
-
-@Composable
-private fun rememberScreenHomeState(): ScreenHomeState {
-    return remember {
-        ScreenHomeState(
-            locationState =
-
-        )
-    }
-
 }

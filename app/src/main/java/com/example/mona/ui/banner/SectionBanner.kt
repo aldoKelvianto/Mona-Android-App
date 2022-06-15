@@ -2,11 +2,13 @@ package com.example.mona.ui.banner
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -16,20 +18,22 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import com.example.mona.data.Banner
-import com.example.mona.data.BannerData
+import com.example.mona.data.BannerRepo
 import dev.chrisbanes.snapper.ExperimentalSnapperApi
 import dev.chrisbanes.snapper.rememberSnapperFlingBehavior
 
 @Preview(showBackground = true, backgroundColor = 0xff212121, widthDp = 320, heightDp = 640)
 @Composable
 fun PreviewSectionBanner() {
-    SectionBanner(BannerData.items)
+    SectionBanner(BannerRepo.items)
 }
 
 @OptIn(ExperimentalSnapperApi::class)
 @Composable
-fun SectionBanner(bannerList: List<Banner>) {
-    val lazyListState = rememberLazyListState()
+fun SectionBanner(
+    bannerList: List<Banner> = rememberBannerState(),
+    lazyListState: LazyListState = rememberLazyListState()
+) {
     val contentPadding = PaddingValues(12.dp)
     LazyRow(
         contentPadding = contentPadding,
@@ -51,7 +55,7 @@ fun SectionBanner(bannerList: List<Banner>) {
 @Preview(showBackground = true, backgroundColor = 0xff212121, widthDp = 320, heightDp = 640)
 @Composable
 fun PreviewBanner() {
-    Banner(BannerData.banner1)
+    Banner(BannerRepo.sampleBanner)
 }
 
 @Composable
@@ -66,3 +70,7 @@ fun Banner(banner: Banner) {
     )
 }
 
+@Composable
+fun rememberBannerState() = remember {
+    BannerRepo.items
+}

@@ -19,12 +19,15 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.mona.data.Category
-import com.example.mona.data.Category1
+import com.example.mona.data.CategoryRepo
 
 @Preview
 @Composable
 fun PreviewTwoImages() {
-    TwoImages(imageRes1 = Category1.icon1, imageRes2 = Category1.icon2)
+    TwoImages(
+        imageRes1 = CategoryRepo.sampleCategory.icon1,
+        imageRes2 = CategoryRepo.sampleCategory.icon2
+    )
 }
 
 @Composable
@@ -52,7 +55,7 @@ fun TwoImages(imageRes1: Int, imageRes2: Int) {
 @Preview
 @Composable
 fun PreviewCategoryItem() {
-    CategoryItem(Category1)
+    CategoryItem(CategoryRepo.sampleCategory)
 }
 
 private fun Modifier.categoryBackground(isHighlight: Boolean): Modifier {

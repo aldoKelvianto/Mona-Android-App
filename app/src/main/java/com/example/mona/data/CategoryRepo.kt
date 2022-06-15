@@ -2,15 +2,26 @@ package com.example.mona.data
 
 import com.example.mona.R
 
-data class Category(val name: String, val icon1: Int, val icon2: Int, val isHighlight : Boolean = false)
+data class Category(
+    val name: String,
+    val icon1: Int,
+    val icon2: Int,
+    val isHighlight: Boolean = false
+)
 
-val Category1 = Category("Sayur dan buah", R.drawable.ic_g1_vegs_a, R.drawable.ic_g1_vegs_b, true)
+object CategoryRepo {
 
-object ItemCategoryData {
+    val sampleCategory =
+        Category("Sayur dan buah", R.drawable.ic_g1_vegs_a, R.drawable.ic_g1_vegs_b, true)
 
     val itemList = listOf(
-        Category1,
-        Category("Osmanthus wine", R.drawable.ic_g2_osmanthus_a, R.drawable.ic_g2_osmanthus_b, true),
+        sampleCategory,
+        Category(
+            "Osmanthus wine",
+            R.drawable.ic_g2_osmanthus_a,
+            R.drawable.ic_g2_osmanthus_b,
+            true
+        ),
         Category("Produk internasional", R.drawable.ic_g3_prod_a, R.drawable.ic_g3_prod_b, true),
         Category("Makanan", R.drawable.ic_g4_food_a, R.drawable.ic_g4_food_b, true),
         Category("Obat-obatan", R.drawable.ic_g5_potions_a, R.drawable.ic_g5_potions_b, true),
@@ -21,7 +32,7 @@ object ItemCategoryData {
         Category("Crystal", R.drawable.ic_g10_crystal_a, R.drawable.ic_g10_crystal_b),
         Category("Kertas", R.drawable.ic_g11_paper_a, R.drawable.ic_g11_paper_b),
         Category("Terbaru", R.drawable.ic_g12_new_a, R.drawable.ic_g12_new_b),
-        Category1,
+        sampleCategory,
         Category("Osmanthus wine", R.drawable.ic_g2_osmanthus_a, R.drawable.ic_g2_osmanthus_b),
         Category("Produk internasional", R.drawable.ic_g3_prod_a, R.drawable.ic_g3_prod_b),
     )

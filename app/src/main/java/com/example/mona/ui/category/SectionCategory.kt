@@ -5,20 +5,21 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.mona.data.Category
-import com.example.mona.data.ItemCategoryData
+import com.example.mona.data.CategoryRepo
 
 @Preview
 @Composable
 fun PreviewSectionCategory() {
-    SectionCategory(ItemCategoryData.itemList)
+    SectionCategory()
 }
 
 @Composable
-fun SectionCategory(categoryList: List<Category>) {
+fun SectionCategory(categoryList: List<Category> = rememberCategoryList()) {
     val columnCount = 3
     val list = categoryList.chunked(columnCount)
     Column(
@@ -36,4 +37,9 @@ fun SectionCategory(categoryList: List<Category>) {
             }
         }
     }
+}
+
+@Composable
+fun rememberCategoryList() = remember {
+    CategoryRepo.itemList
 }

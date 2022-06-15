@@ -14,11 +14,10 @@ import androidx.navigation.compose.rememberNavController
 fun rememberMonaAppState(
     navHostController: NavHostController = rememberNavController(),
     resources: Resources = resources()
-) =
-    remember(navHostController, resources) {
-        MonaAppState(navHostController, resources)
-    }
+) = remember(navHostController, resources) {
+    MonaAppState(navHostController, resources)
 }
+
 
 @Stable
 class MonaAppState(

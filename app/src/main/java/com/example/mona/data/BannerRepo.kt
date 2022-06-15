@@ -4,12 +4,12 @@ import com.example.mona.R
 
 data class Banner(val resId: Int)
 
-object BannerData {
+object BannerRepo {
 
-    val banner1 = Banner(resId = R.drawable.ic_banner_1)
+    val sampleBanner = Banner(resId = R.drawable.ic_banner_1)
 
     val items = listOf(
-        banner1,
+        sampleBanner,
         Banner(resId = R.drawable.ic_banner_2),
         Banner(resId = R.drawable.ic_banner_3),
         Banner(resId = R.drawable.ic_banner_4),

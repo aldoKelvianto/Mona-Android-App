@@ -7,10 +7,16 @@ This project is a clone of [Astro Android app](https://play.google.com/store/app
 - Grid section with two view item type
 - Bottom navigation and handling back button
 
-Screenshot (left: Astro, right: Mona):
-![screenshot1](/assets/screenshot1.jpg) ![screenshot2](/assets/screenshot2.jpg)
+Mona screenshot:
+
+![screenshot2](/assets/screenshot2.jpg)
+
+Astro screenshot:
+
+![screenshot1](/assets/screenshot1.jpg)
 
 GIF:
+
 ![demo](/assets/demo.gif)
 
 ## What's included

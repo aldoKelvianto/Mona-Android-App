@@ -29,6 +29,7 @@ class BottomNavigationTest {
     @Test
     fun `profile screen navigation`() {
         // Given
+        val resText = getString(R.string.screen_profile)
         composeTestRule.setContent {
             MonaApp()
         }
@@ -39,7 +40,7 @@ class BottomNavigationTest {
         bottomNode.performClick()
 
         // Then
-        val textNode = composeTestRule.onNodeWithText("This is profile screen")
+        val textNode = composeTestRule.onNodeWithText(resText)
         textNode.assertDisplayedExists()
     }
 
@@ -48,8 +49,10 @@ class BottomNavigationTest {
         .use { scenario ->
             scenario.onActivity { activity: MainActivity ->
                 // Home screen
-                val greetingNode = composeTestRule.onNodeWithText("Hey Traveller")
-                val gridNode = composeTestRule.onNodeWithText("Makanan")
+                val resTextNode = getString(R.string.section_greeting)
+                val resGridNode = getString(R.string.category_4)
+                val greetingNode = composeTestRule.onNodeWithText(resTextNode)
+                val gridNode = composeTestRule.onNodeWithText(resGridNode)
                 greetingNode.assertDisplayedExists()
                 gridNode.assertDisplayedExists()
 
@@ -60,7 +63,8 @@ class BottomNavigationTest {
                 profileBottomNode.performClick()
 
                 // Profile screen
-                val profileTextNode = composeTestRule.onNodeWithText("This is profile screen")
+                val resProfileText = getString(R.string.screen_profile)
+                val profileTextNode = composeTestRule.onNodeWithText(resProfileText)
                 profileTextNode.assertDisplayedExists()
                 greetingNode.assertDoesNotExist()
                 gridNode.assertDoesNotExist()
@@ -79,8 +83,10 @@ class BottomNavigationTest {
         .use { scenario ->
             scenario.onActivity { activity: MainActivity ->
                 // Home screen
-                val greetingNode = composeTestRule.onNodeWithText("Hey Traveller")
-                val gridNode = composeTestRule.onNodeWithText("Makanan")
+                val resTextNode = getString(R.string.section_greeting)
+                val resGridNode = getString(R.string.category_4)
+                val greetingNode = composeTestRule.onNodeWithText(resTextNode)
+                val gridNode = composeTestRule.onNodeWithText(resGridNode)
                 greetingNode.assertDisplayedExists()
                 gridNode.assertDisplayedExists()
 
@@ -91,7 +97,8 @@ class BottomNavigationTest {
                 profileBottomNode.performClick()
 
                 // Profile screen
-                val profileTextNode = composeTestRule.onNodeWithText("This is profile screen")
+                val resProfileText = getString(R.string.screen_profile)
+                val profileTextNode = composeTestRule.onNodeWithText(resProfileText)
                 profileTextNode.assertDisplayedExists()
                 greetingNode.assertDoesNotExist()
                 gridNode.assertDoesNotExist()
@@ -103,8 +110,9 @@ class BottomNavigationTest {
                 historyBottomNode.performClick()
 
                 // History screen
-                val textNode = composeTestRule.onNodeWithText("This is history screen")
-                textNode.assertDisplayedExists()
+                val resHistoryText = getString(R.string.screen_history)
+                val historyTextNode = composeTestRule.onNodeWithText(resHistoryText)
+                historyTextNode.assertDisplayedExists()
                 greetingNode.assertDoesNotExist()
                 gridNode.assertDoesNotExist()
 
@@ -115,7 +123,8 @@ class BottomNavigationTest {
                 cartBottomNode.performClick()
 
                 // Cart screen
-                val cartTextNode = composeTestRule.onNodeWithText("This is cart screen")
+                val resCartText = getString(R.string.screen_cart)
+                val cartTextNode = composeTestRule.onNodeWithText(resCartText)
                 cartTextNode.assertDisplayedExists()
                 greetingNode.assertDoesNotExist()
                 gridNode.assertDoesNotExist()

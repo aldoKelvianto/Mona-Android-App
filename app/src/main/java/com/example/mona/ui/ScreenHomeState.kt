@@ -11,5 +11,4 @@ data class ScreenHomeState(
     val hint: String,
     val bannerList: List<Banner>,
     val categoryList: List<Category>,
-    val bottomPadding: Dp
 )

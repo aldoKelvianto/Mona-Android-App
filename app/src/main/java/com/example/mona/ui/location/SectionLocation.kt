@@ -5,10 +5,12 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Icon
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -18,7 +20,7 @@ import androidx.constraintlayout.compose.layoutId
 import com.example.mona.R
 
 @Composable
-fun SectionLocation(state: LocationState) {
+fun SectionLocation(state: LocationState = rememberLocationState()) {
     ConstraintLayout(
         modifier = Modifier
             .fillMaxWidth()
@@ -83,10 +85,20 @@ private fun sectionLocationConstraint() = ConstraintSet {
 @Preview(backgroundColor = 0xff212121, showBackground = true, widthDp = 320, heightDp = 640)
 @Composable
 fun PreviewSectionLocation() {
-    val state = LocationState(
-        "Mondstadt",
-        "15 minutes",
-        "0"
-    )
-    SectionLocation(state)
+    SectionLocation()
+}
+
+@Composable
+fun rememberLocationState(): LocationState {
+    val location = stringResource(id = R.string.section_location)
+    val distance = stringResource(id = R.string.section_distance)
+    val point = stringResource(id = R.string.section_point)
+
+    return remember(location, distance, point) {
+        LocationState(
+            location = location,
+            distance = distance,
+            point = point
+        )
+    }
 }

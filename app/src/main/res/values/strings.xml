@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Mona</string>
+    <string name="screen_cart">This is cart screen</string>
+    <string name="screen_history">This is history screen</string>
+    <string name="screen_profile">This is profile screen</string>
+    <string name="section_location">Mondstadt</string>
+    <string name="section_distance">15 menit</string>
+    <string name="section_point">0</string>
+    <string name="section_greeting">Hey Traveller</string>
+    <string name="section_hint">Cari produk disini</string>
 </resources>

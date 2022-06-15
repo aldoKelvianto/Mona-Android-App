@@ -1,5 +1,6 @@
 package com.example.mona.ui
 
+import androidx.compose.foundation.ScrollState
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
@@ -14,6 +15,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.zIndex
 import com.example.mona.ui.banner.SectionBanner
@@ -25,19 +27,22 @@ import com.example.mona.ui.search.SectionSearch
 @Preview
 @Composable
 fun PreviewScreenHome() {
-    ScreenHome(0.dp)
+    ScreenHome(bottomPadding =0.dp)
 }
 
 @Composable
-fun ScreenHome(state: ScreenHomeState) {
-    val scrollState = rememberScrollState()
+fun ScreenHome(
+    state: ScreenHomeState = rememberScreenHomeState(),
+    scrollState: ScrollState = rememberScrollState(),
+    bottomPadding: Dp
+) {
     Column(
         modifier = Modifier
             .verticalScroll(
                 state = scrollState,
                 enabled = true
             )
-            .padding(bottom = state.bottomPadding + 12.dp)
+            .padding(bottom = bottomPadding + 12.dp)
     ) {
         Box {
             val height = remember {
@@ -49,14 +54,14 @@ fun ScreenHome(state: ScreenHomeState) {
                         height.value = coordinates.size.height
                     }
                     .zIndex(1f)) {
-                SectionLocation(state.locationState)
-                SectionGreeting(state.greeting)
+                SectionLocation()
+                SectionGreeting()
                 Spacer(
                     modifier = Modifier
                         .fillMaxWidth()
                         .size(8.dp)
                 )
-                SectionSearch(state.hint)
+                SectionSearch()
                 SectionBanner(state.bannerList)
             }
             val heightInDp = with(LocalDensity.current) {
@@ -86,4 +91,15 @@ private fun getRadialGradient(): Brush {
         radius = 550f,
         center = Offset(606f, -100f)
     )
+}
+
+@Composable
+private fun rememberScreenHomeState(): ScreenHomeState {
+    return remember {
+        ScreenHomeState(
+            locationState =
+
+        )
+    }
+
 }

@@ -27,13 +27,15 @@ class ScreenTest {
     @Test
     fun `home screen test`() {
         // Given
+        val resTextNode = getString(R.string.section_greeting)
+        val resGridNode = getString(R.string.category_4)
         composeTestRule.setContent {
             MonaApp()
         }
 
         // When
-        val textNode = composeTestRule.onNodeWithText("Hey Traveller")
-        val gridNode = composeTestRule.onNodeWithText("Makanan")
+        val textNode = composeTestRule.onNodeWithText(resTextNode)
+        val gridNode = composeTestRule.onNodeWithText(resGridNode)
         val bottomNode = composeTestRule.onNodeWithContentDescription(BottomBarItem.Home.route)
 
         // Then
@@ -59,12 +61,13 @@ class ScreenTest {
     @Test
     fun `cart screen test`() {
         // Given
+        val resText = getString(R.string.screen_cart)
         composeTestRule.setContent {
-            ScreenText(text = "This is cart screen")
+            ScreenText(text = resText)
         }
 
         // When
-        val textNode = composeTestRule.onNodeWithText("This is cart screen")
+        val textNode = composeTestRule.onNodeWithText(resText)
 
         // Then
         textNode.assertDisplayedExists()
@@ -73,12 +76,13 @@ class ScreenTest {
     @Test
     fun `profile screen test`() {
         // Given
+        val resText = getString(R.string.screen_profile)
         composeTestRule.setContent {
-            ScreenText(text = "This is profile screen")
+            ScreenText(text = resText)
         }
 
         // When
-        val textNode = composeTestRule.onNodeWithText("This is profile screen")
+        val textNode = composeTestRule.onNodeWithText(resText)
 
         // Then
         textNode.assertDisplayedExists()

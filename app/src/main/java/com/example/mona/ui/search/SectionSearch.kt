@@ -16,7 +16,7 @@ fun PreviewSectionSearchFavorite() {
 }
 
 @Composable
-fun SectionSearch(hint: String = stringResource(id = R.string.app_name)) {
+fun SectionSearch(hint: String = stringResource(id = R.string.section_hint)) {
     Row(
         modifier = Modifier
             .fillMaxWidth()

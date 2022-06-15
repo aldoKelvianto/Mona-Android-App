@@ -8,4 +8,16 @@
     <string name="section_point">0</string>
     <string name="section_greeting">Hey Traveller</string>
     <string name="section_hint">Cari produk disini</string>
+    <string name="category_1">Sayur dan buah</string>
+    <string name="category_2">Osmanthus wine</string>
+    <string name="category_3">Produk internasional</string>
+    <string name="category_4">Makanan</string>
+    <string name="category_5">Obat-obatan</string>
+    <string name="category_6">Aksesoris</string>
+    <string name="category_7">Promo 40%</string>
+    <string name="category_8">Buku</string>
+    <string name="category_9">Special deals</string>
+    <string name="category_10">Crystal</string>
+    <string name="category_11">Kertas</string>
+    <string name="category_12">Terbaru</string>
 </resources>

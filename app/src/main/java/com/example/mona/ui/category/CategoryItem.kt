@@ -13,6 +13,7 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -89,7 +90,7 @@ fun CategoryItem(category: Category) {
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
-                text = category.name,
+                text = stringResource(id = category.name),
                 modifier = Modifier.width(82.dp),
                 fontSize = 12.sp,
                 fontWeight = FontWeight.Bold,

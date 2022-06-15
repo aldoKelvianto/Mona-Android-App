@@ -31,13 +31,15 @@ class SectionTest {
     @Test
     fun `location section test`() {
         // Given
+        val resTextNode1 = getString(R.string.section_location)
+        val resTextNode2 = getString(R.string.section_distance)
         composeTestRule.setContent {
             SectionLocation()
         }
 
         // When
-        val textNode1 = composeTestRule.onNodeWithText("Mondstadt")
-        val textNode2 = composeTestRule.onNodeWithText("15 menit")
+        val textNode1 = composeTestRule.onNodeWithText(resTextNode1)
+        val textNode2 = composeTestRule.onNodeWithText(resTextNode2)
 
         // Then
         textNode1.assertDisplayedExists()
@@ -47,12 +49,13 @@ class SectionTest {
     @Test
     fun `greeting section test`() {
         // Given
+        val resTextNode = getString(R.string.section_greeting)
         composeTestRule.setContent {
             SectionGreeting()
         }
 
         // When
-        val textNode = composeTestRule.onNodeWithText("Hey Traveller")
+        val textNode = composeTestRule.onNodeWithText(resTextNode)
 
         // Then
         textNode.assertDisplayedExists()
@@ -61,13 +64,15 @@ class SectionTest {
     @Test
     fun `category section test`() {
         // Given
+        val resCategory1 = getString(R.string.category_1)
+        val resCategory2 = getString(R.string.category_2)
         composeTestRule.setContent {
             SectionCategory()
         }
 
         // When
-        val textNodes1 = composeTestRule.onAllNodesWithText("Sayur dan buah")
-        val textNodes2 = composeTestRule.onAllNodesWithText("Osmanthus wine")
+        val textNodes1 = composeTestRule.onAllNodesWithText(resCategory1)
+        val textNodes2 = composeTestRule.onAllNodesWithText(resCategory2)
 
         // Then
         textNodes1.onFirst().assertDisplayedExists()

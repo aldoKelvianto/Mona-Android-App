@@ -9,11 +9,11 @@ This project is a clone of [Astro Android app](https://play.google.com/store/app
 
 Mona screenshot:
 
-![screenshot2](/assets/screenshot2.webp)
+![screenshot2](/assets/screenshot1.jpg)
 
 Astro screenshot:
 
-![screenshot1](/assets/screenshot1.webp)
+![screenshot1](/assets/screenshot2.jpg)
 
 GIF:
 

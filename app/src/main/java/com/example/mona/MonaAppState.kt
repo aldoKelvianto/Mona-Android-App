@@ -8,6 +8,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.NavHostController
+import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 
 @Composable
@@ -22,8 +23,13 @@ fun rememberMonaAppState(
 @Stable
 class MonaAppState(
     val navHostController: NavHostController,
-    val resources: Resources
+    private val resources: Resources
 ) {
+    val previousRoute: String
+        @Composable
+        get() = navHostController.currentBackStackEntryAsState().value?.destination?.route
+            ?: BottomBarItem.Home.route
+
     val currentRoute: String
         get() = navHostController.currentDestination?.route ?: BottomBarItem.Home.route
 
@@ -35,24 +41,6 @@ class MonaAppState(
 
     val profileScreenText: String
         get() = resources.getString(R.string.screen_profile)
-
-    fun navigateToBottomBarRoute(clickedBottomBarItem: BottomBarItem) {
-        if (clickedBottomBarItem.route == currentRoute) {
-            return
-        }
-        navHostController.navigate(clickedBottomBarItem.route) {
-            // Pop up to the start destination of the graph to
-            // avoid building up a large stack of destinations
-            // on the back stack as users select items
-            navHostController.graph.startDestinationRoute?.let { route ->
-                popUpTo(route) {
-                    saveState = true
-                }
-            }
-            // Restore state when re-selecting a previously selected item
-            restoreState = true
-        }
-    }
 }
 
 @Composable

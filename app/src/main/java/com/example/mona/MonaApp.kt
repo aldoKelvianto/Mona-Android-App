@@ -15,8 +15,8 @@ fun PreviewMonaApp() {
 }
 
 @Composable
-fun MonaApp() {
-    val appState = rememberMonaAppState()
+fun MonaApp(appState: MonaAppState = rememberMonaAppState()) {
+    val previousRoute = appState.previousRoute
     Scaffold(
         content = { paddingValues ->
             NavHost(
@@ -39,7 +39,21 @@ fun MonaApp() {
         },
         bottomBar = {
             SectionBottomBar(appState.currentRoute) { clickedBottomBarItem ->
-                appState.navigateToBottomBarRoute(clickedBottomBarItem)
+                if (clickedBottomBarItem.route == previousRoute) {
+                    return@SectionBottomBar
+                }
+                appState.navHostController.navigate(clickedBottomBarItem.route) {
+                    // Pop up to the start destination of the graph to
+                    // avoid building up a large stack of destinations
+                    // on the back stack as users select items
+                    appState.navHostController.graph.startDestinationRoute?.let { route ->
+                        popUpTo(route) {
+                            saveState = true
+                        }
+                    }
+                    // Restore state when re-selecting a previously selected item
+                    restoreState = true
+                }
             }
         }
     )

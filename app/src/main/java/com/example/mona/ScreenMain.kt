@@ -5,17 +5,21 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.example.mona.ui.ScreenHome
 import com.example.mona.ui.ScreenText
 
 @Preview
 @Composable
-fun PreviewMonaApp() {
-    MonaApp()
+fun PreviewScreenMain() {
+    ScreenMain()
 }
 
 @Composable
-fun MonaApp(appState: MonaAppState = rememberMonaAppState()) {
+fun ScreenMain(appState: MainState = MainState(
+    rememberNavController(),
+    resources()
+)) {
     val previousRoute = appState.previousRoute
     Scaffold(
         content = { paddingValues ->

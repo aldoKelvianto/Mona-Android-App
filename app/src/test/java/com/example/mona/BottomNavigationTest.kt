@@ -31,7 +31,7 @@ class BottomNavigationTest {
         // Given
         val resText = getString(R.string.screen_profile)
         composeTestRule.setContent {
-            MonaApp()
+            ScreenMain()
         }
 
         // When

@@ -11,17 +11,8 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 
-@Composable
-fun rememberMonaAppState(
-    navHostController: NavHostController = rememberNavController(),
-    resources: Resources = resources()
-) = remember(navHostController, resources) {
-    MonaAppState(navHostController, resources)
-}
-
-
 @Stable
-class MonaAppState(
+class MainState(
     val navHostController: NavHostController,
     private val resources: Resources
 ) {
@@ -41,13 +32,6 @@ class MonaAppState(
 
     val profileScreenText: String
         get() = resources.getString(R.string.screen_profile)
-}
-
-@Composable
-@ReadOnlyComposable
-private fun resources(): Resources {
-    LocalConfiguration.current
-    return LocalContext.current.resources
 }
 
 

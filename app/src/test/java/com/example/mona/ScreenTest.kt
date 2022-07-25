@@ -30,7 +30,7 @@ class ScreenTest {
         val resTextNode = getString(R.string.section_greeting)
         val resGridNode = getString(R.string.category_4)
         composeTestRule.setContent {
-            MonaApp()
+            ScreenMain()
         }
 
         // When

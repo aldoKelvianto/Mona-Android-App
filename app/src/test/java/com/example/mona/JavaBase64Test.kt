@@ -23,4 +23,19 @@ class JavaBase64Test {
         assertEquals("aGVsbG8_d29ybGQ=", outputUrlSafe)
         assertEquals("aGVsbG8_d29ybGQ", outputUrlSafeNoPadding)
     }
+
+    @Test
+    fun `decode test`() {
+        // Given
+        val encodedPayload =
+            "eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ"
+
+        // When
+        val decodedPayload: ByteArray = Base64.getUrlDecoder().decode(encodedPayload)
+        val actual = String(decodedPayload)
+
+        // Then
+        val expected = """{"sub":"1234567890","name":"John Doe","iat":1516239022}"""
+        assertEquals(expected, actual)
+    }
 }

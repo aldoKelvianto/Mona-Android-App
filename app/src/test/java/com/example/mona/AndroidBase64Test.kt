@@ -15,6 +15,7 @@ class AndroidBase64Test {
     fun `encode test`() {
         // Given
         val message = "hello?world".toByteArray()
+
         // When
         val outputPadding = Base64.encodeToString(message, Base64.DEFAULT)
         val outputNoPadding = Base64.encodeToString(message, Base64.NO_PADDING)

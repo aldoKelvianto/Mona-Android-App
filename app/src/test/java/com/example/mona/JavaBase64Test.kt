@@ -10,6 +10,7 @@ class JavaBase64Test {
     fun `encode test`() {
         // Given
         val message = "hello?world".toByteArray()
+
         // When
         val outputPadding = Base64.getEncoder().encodeToString(message)
         val outputNoPadding = Base64.getEncoder().withoutPadding().encodeToString(message)

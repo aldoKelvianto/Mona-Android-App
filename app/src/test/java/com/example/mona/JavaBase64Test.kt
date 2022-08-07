@@ -1,6 +1,7 @@
 package com.example.mona
 
 import junit.framework.TestCase.assertEquals
+import junit.framework.TestCase.assertTrue
 import org.junit.Test
 import java.util.*
 
@@ -25,7 +26,7 @@ class JavaBase64Test {
     }
 
     @Test
-    fun `decode test`() {
+    fun `decode test 1`() {
         // Given
         val encodedPayload =
             "eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ"
@@ -37,5 +38,20 @@ class JavaBase64Test {
         // Then
         val expected = """{"sub":"1234567890","name":"John Doe","iat":1516239022}"""
         assertEquals(expected, actual)
+    }
+
+    @Test
+    fun `decode test 2`() {
+        // Given
+        val encodedPayload = "aGVsbG8/d29ybGQ="
+
+        // When
+        try {
+            val decodedPayload: ByteArray = Base64.getUrlDecoder().decode(encodedPayload)
+        } catch (e: Exception) {
+            // Then
+            // java.lang.IllegalArgumentException: Illegal base64 character 2f
+            assertTrue(e is IllegalArgumentException)
+        }
     }
 }

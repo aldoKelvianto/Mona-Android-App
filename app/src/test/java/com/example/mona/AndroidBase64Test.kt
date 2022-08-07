@@ -33,15 +33,44 @@ class AndroidBase64Test {
         assertEquals("aGVsbG8/d29ybGQ=\r\n", outputCrlf)
     }
 
-
     @Test
-    fun `decode test`() {
+    fun `decode test 1`() {
         // Given
         val encodedPayload =
             "eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ"
 
         // When
         val decodedPayload: ByteArray = Base64.decode(encodedPayload, Base64.URL_SAFE)
+        val actual = String(decodedPayload)
+
+        // Then
+        val expected = """{"sub":"1234567890","name":"John Doe","iat":1516239022}"""
+        assertEquals(expected, actual)
+    }
+
+    @Test
+    fun `decode test 2`() {
+        // Given
+        val encodedPayload =
+            "eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ"
+
+        // When
+        val decodedPayload: ByteArray = Base64.decode(encodedPayload, Base64.DEFAULT)
+        val actual = String(decodedPayload)
+
+        // Then
+        val expected = """{"sub":"1234567890","name":"John Doe","iat":1516239022}"""
+        assertEquals(expected, actual)
+    }
+
+    @Test
+    fun `decode test 3`() {
+        // Given
+        val encodedPayload =
+            "eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ"
+
+        // When
+        val decodedPayload: ByteArray = Base64.decode(encodedPayload, Base64.NO_PADDING)
         val actual = String(decodedPayload)
 
         // Then

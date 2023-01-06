@@ -39,6 +39,14 @@ android {
     }
     kotlinOptions {
         jvmTarget = '1.8'
+        freeCompilerArgs += [
+                "-P",
+                "plugin:androidx.compose.compiler.plugins.kotlin:reportsDestination=" + project.buildDir.absolutePath + "/compose_metrics"
+        ]
+        freeCompilerArgs += [
+                "-P",
+                "plugin:androidx.compose.compiler.plugins.kotlin:metricsDestination=" + project.buildDir.absolutePath + "/compose_metrics"
+        ]
     }
     testOptions {
         unitTests {
@@ -46,7 +54,9 @@ android {
         }
     }
     namespace 'com.example.mona'
+
 }
+
 
 dependencies {
     def composeBom = platform('androidx.compose:compose-bom:2022.12.00')

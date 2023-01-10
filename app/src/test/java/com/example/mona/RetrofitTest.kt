@@ -95,6 +95,7 @@ class RetrofitTest {
             assertTrue(result.isFailure)
             val exception = result.exceptionOrNull() as HttpException
             assertEquals(exception.code(), 500)
+            assertEquals(result.exceptionOrNull()!!.message, "HTTP 500 ")
             val errorBody = String(exception.response()!!.errorBody()!!.bytes())
             val postmanError = Gson().fromJson(errorBody, PostmanError::class.java)
             assertEquals(postmanError.error, "nginx not working")

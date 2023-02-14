@@ -14,7 +14,7 @@ class AndroidBase64EncodingTest {
     ZTMiCn0=
      */
     @Test
-    fun jsonEncodeDecodeTest() {
+    fun jsonEncodeDecodeTest1() {
         // Given
         val message = """
             {
@@ -22,6 +22,35 @@ class AndroidBase64EncodingTest {
                 "exp2": "",
                 "exp3": "value3"
             }
+        """.trimIndent()
+
+        // When
+        val encodedString = Base64.encodeToString(message.toByteArray(), Base64.DEFAULT)
+        val decodedString = String(Base64.decode(encodedString, Base64.DEFAULT))
+
+        // Then
+        assertEquals(message, decodedString)
+    }
+
+    /**
+     * Example output: WwogICAgewogICAgICAgICJleHAxIjogInZhbHVlMSIKICAgIH0sCiAgICB7CiAgICAgICAgImV4
+    cDIiOiAiIgogICAgfSwKICAgIHsKICAgICAgICAiZXhwMyI6ICJ2YWx1ZTMiCiAgICB9Cl0=
+     */
+    @Test
+    fun jsonEncodeDecodeTest2() {
+        // Given
+        val message = """
+            [
+                {
+                    "exp1": "value1"
+                },
+                {
+                    "exp2": ""
+                },
+                {
+                    "exp3": "value3"
+                }
+            ]
         """.trimIndent()
 
         // When

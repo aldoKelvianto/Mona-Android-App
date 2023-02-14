@@ -79,7 +79,7 @@ dependencies {
 
     testImplementation "androidx.compose.ui:ui-test-junit4"
     testImplementation 'junit:junit:4.13.2'
-    testImplementation 'org.robolectric:robolectric:4.7.3'
+    testImplementation 'org.robolectric:robolectric:4.9.2'
     testImplementation(libs.retrofit)
     testImplementation(libs.converterGson)
 

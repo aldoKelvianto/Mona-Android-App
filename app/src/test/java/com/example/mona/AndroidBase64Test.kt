@@ -12,6 +12,25 @@ import org.robolectric.RobolectricTestRunner
 class AndroidBase64Test {
 
     @Test
+    fun `json encode test`() {
+        // Given
+        val message = """
+            {
+                "exp1": "value1",
+                "exp2": "",
+                "exp3": "value3"
+            }
+        """.trimIndent().toByteArray()
+
+        // When
+        val encodedString = Base64.encodeToString(message, Base64.DEFAULT)
+        val decodedString = Base64.decode(encodedString, Base64.DEFAULT)
+
+        // Then
+        assertEquals(message, decodedString)
+    }
+
+    @Test
     fun `encode test`() {
         // Given
         val message = "hello?world".toByteArray()

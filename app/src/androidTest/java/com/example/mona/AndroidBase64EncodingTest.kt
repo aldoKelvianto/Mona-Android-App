@@ -2,7 +2,7 @@ package com.example.mona
 
 import android.util.Base64
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import junit.framework.TestCase
+import junit.framework.TestCase.assertEquals
 import org.junit.Test
 import org.junit.runner.RunWith
 
@@ -29,6 +29,6 @@ class AndroidBase64EncodingTest {
         val decodedString = String(Base64.decode(encodedString, Base64.DEFAULT))
 
         // Then
-        TestCase.assertEquals(message, decodedString)
+        assertEquals(message, decodedString)
     }
 }

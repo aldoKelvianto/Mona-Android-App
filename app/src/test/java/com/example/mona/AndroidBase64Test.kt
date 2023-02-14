@@ -11,6 +11,10 @@ import org.robolectric.RobolectricTestRunner
 @RunWith(RobolectricTestRunner::class)
 class AndroidBase64Test {
 
+    /**
+     * Example output: ewogICAgImV4cDEiOiAidmFsdWUxIiwKICAgICJleHAyIjogIiIsCiAgICAiZXhwMyI6ICJ2YWx1
+    ZTMiCn0=
+     */
     @Test
     fun `json encode test`() {
         // Given
@@ -20,11 +24,11 @@ class AndroidBase64Test {
                 "exp2": "",
                 "exp3": "value3"
             }
-        """.trimIndent().toByteArray()
+        """.trimIndent()
 
         // When
-        val encodedString = Base64.encodeToString(message, Base64.DEFAULT)
-        val decodedString = Base64.decode(encodedString, Base64.DEFAULT)
+        val encodedString = Base64.encodeToString(message.toByteArray(), Base64.DEFAULT)
+        val decodedString = String(Base64.decode(encodedString, Base64.DEFAULT))
 
         // Then
         assertEquals(message, decodedString)

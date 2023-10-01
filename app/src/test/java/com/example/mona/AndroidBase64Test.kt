@@ -1,14 +1,17 @@
 package com.example.mona
 
+import android.os.Build
 import android.util.Base64
 import junit.framework.TestCase.assertEquals
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
+import org.robolectric.annotation.Config
 
 // To avoid "Method encodeToString in android.util.Base64 not mocked." error,
 // use robolectric or use emulator/test device.
 @RunWith(RobolectricTestRunner::class)
+@Config(sdk = [Build.VERSION_CODES.TIRAMISU])
 class AndroidBase64Test {
 
     /**

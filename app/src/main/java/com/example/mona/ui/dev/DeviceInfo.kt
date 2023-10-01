@@ -1,4 +1,4 @@
-package com.example.mona.ui
+package com.example.mona.ui.dev
 
 import android.os.Build
 import androidx.compose.foundation.layout.Column
